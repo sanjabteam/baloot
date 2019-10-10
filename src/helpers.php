@@ -84,7 +84,7 @@ if (!function_exists("aparat_info")) {
                                 if ($cache) {
                                     $videoInfos[] = \SanjabHelpers\Models\AparatVideo::create($responseBody);
                                 } else {
-                                    find_bank_by_card_number             $videoInfos[] = $responseBody;
+                                    $videoInfos[] = $responseBody;
                                 }
                             }
                         }
