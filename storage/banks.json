@@ -1,0 +1,137 @@
+[
+    {
+        "class": "bsi",
+        "name": "بانک صادرات ایران",
+        "card_prefix": "603769"
+    },
+    {
+        "class": "mellat",
+        "name": "بانک ملت",
+        "card_prefix": "610433"
+    },
+    {
+        "class": "tejarat",
+        "name": "بانک تجارت",
+        "card_prefix": "627353"
+    },
+    {
+        "class": "bmi",
+        "name": "بانک ملی ایران",
+        "card_prefix": "603799"
+    },
+    {
+        "class": "sepah",
+        "name": "بانک سپه",
+        "card_prefix": "589210"
+    },
+    {
+        "class": "bki",
+        "name": "بانک کشاورزی",
+        "card_prefix": "603770"
+    },
+    {
+        "class": "parsian",
+        "name": "بانک پارسیان",
+        "card_prefix": "622106"
+    },
+    {
+        "class": "maskan",
+        "name": "بانک مسکن",
+        "card_prefix": "628023"
+    },
+    {
+        "class": "rb",
+        "name": "بانک رفاه کارگران",
+        "card_prefix": "589463"
+    },
+    {
+        "class": "en",
+        "name": "بانک اقتصاد نوین",
+        "card_prefix": "627412"
+    },
+    {
+        "class": "ansar",
+        "name": "بانک انصار",
+        "card_prefix": "627381"
+    },
+    {
+        "class": "bpi",
+        "name": "بانک پاسارگاد",
+        "card_prefix": "502229"
+    },
+    {
+        "class": "sb",
+        "name": "بانک سامان",
+        "card_prefix": "621986"
+    },
+    {
+        "class": "sina",
+        "name": "بانک سینا",
+        "card_prefix": "639346"
+    },
+    {
+        "class": "post",
+        "name": "پست بانک ایران",
+        "card_prefix": "627760"
+    },
+    {
+        "class": "ghbi",
+        "name": "بانک قوامین",
+        "card_prefix": "639599"
+    },
+    {
+        "class": "tt",
+        "name": "بانک توسعه تعاون",
+        "card_prefix": "502908"
+    },
+    {
+        "class": "shahr",
+        "name": "بانک شهر",
+        "card_prefix": "502806"
+    },
+    {
+        "class": "ba",
+        "name": "بانک آینده",
+        "card_prefix": "636214"
+    },
+    {
+        "class": "sarmayeh",
+        "name": "بانک سرمایه",
+        "card_prefix": "639607"
+    },
+    {
+        "class": "day",
+        "name": "بانک دی",
+        "card_prefix": "502938"
+    },
+    {
+        "class": "hi",
+        "name": "بانک حکمت ایرانیان",
+        "card_prefix": "636949"
+    },
+    {
+        "class": "iz",
+        "name": "بانک ایران زمین",
+        "card_prefix": "505785"
+    },
+    {
+        "class": "kar",
+        "name": "بانک کارآفرین",
+        "card_prefix": "627488"
+    },
+    {
+        "class": "tourism",
+        "name": "بانک گردشگری",
+        "card_prefix": "505416"
+    },
+    {
+        "class": "bim",
+        "name": "بانک صنعت و معدن",
+        "card_prefix": "627961"
+    },
+    {
+        "class": "edbi",
+        "name": "بانک توسعه صادرات ایران",
+        "card_prefix": "627648"
+    }
+]

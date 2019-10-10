@@ -1,0 +1,58 @@
+{
+    "name": "sanjabteam/helpers",
+    "description": "Helpers",
+    "keywords": [
+        "sanjabteam",
+        "helpers"
+    ],
+    "homepage": "https://github.com/sanjabteam/helpers",
+    "license": "MIT",
+    "type": "library",
+    "authors": [
+        {
+            "name": "amir alizadeh",
+            "email": "amiralizadeh9480@gmail.com"
+        }
+    ],
+    "require": {
+        "php": "^7.1",
+        "hekmatinasser/verta": "^1.10",
+        "illuminate/support": "^6.0",
+        "cviebrock/eloquent-sluggable": "^6.0"
+    },
+    "require-dev": {
+        "orchestra/testbench": "^4.0",
+        "phpunit/phpunit": "^8.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "SanjabHelpers\\": "src"
+        },
+        "classmap": [
+            "database/seeds"
+        ],
+        "files": [
+            "src/helpers.php"
+        ]
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "SanjabHelpers\\Tests\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit",
+        "test-coverage": "vendor/bin/phpunit --coverage-html coverage"
+
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "SanjabHelpers\\SanjabHelpersServiceProvider"
+            ]
+        }
+    }
+}
