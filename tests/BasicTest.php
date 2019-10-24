@@ -1,13 +1,13 @@
 <?php
 
-namespace SanjabHelpers\Tests;
+namespace Baloot\Tests;
 
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Artisan;
 use Orchestra\Testbench\TestCase;
-use SanjabHelpers\EloquentHelper;
+use Baloot\EloquentHelper;
 
 class BasicTest extends TestCase
 {
@@ -38,7 +38,7 @@ class BasicTest extends TestCase
             ]
         ]);
 
-        $middleware = new \SanjabHelpers\Middleware\FixRequestInputs;
+        $middleware = new \Baloot\Middleware\FixRequestInputs;
 
         $middleware->handle($request, function ($req) {
             $this->assertEquals($req['test_fa'], '1234567890');
@@ -89,12 +89,12 @@ class BasicTest extends TestCase
 
         // aparat
         $model->video = "https://www.aparat.com/v/O4qSP";
-        $this->assertInstanceOf(\SanjabHelpers\Models\AparatVideo::class, $model->video_aparat);
+        $this->assertInstanceOf(\Baloot\Models\AparatVideo::class, $model->video_aparat);
         $this->assertEquals("ایستگاه جوانمرد راستگو", $model->video_aparat->title);
     }
 
     protected function getPackageProviders($app)
     {
-        return [\SanjabHelpers\SanjabHelpersServiceProvider::class];
+        return [\Baloot\BalootServiceProvider::class];
     }
 }

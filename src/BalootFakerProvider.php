@@ -1,10 +1,10 @@
 <?php
 
-namespace SanjabHelpers;
+namespace Baloot;
 
 use Illuminate\Support\Facades\File;
 
-class SanjabFakerProvider extends \Faker\Provider\Base
+class BalootFakerProvider extends \Faker\Provider\Base
 {
     public function customImage($path, $width, $height, $prefix = '')
     {
@@ -50,7 +50,7 @@ class SanjabFakerProvider extends \Faker\Provider\Base
 
     public function aparatVideo()
     {
-        $videos = \Cache::rememberForEver('sanjab_helpers_aparat_videos', function () {
+        $videos = \Cache::rememberForEver('sanjab_baloot_aparat_videos', function () {
             $curl = curl_init();
             curl_setopt_array($curl, [
                 CURLOPT_URL => 'https://www.aparat.com/etc/api/categoryVideos/cat/7/perpage/50',

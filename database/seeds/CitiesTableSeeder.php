@@ -1,11 +1,11 @@
 <?php
 
-namespace SanjabHelpers\Database;
+namespace Baloot\Database;
 
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Config;
-use SanjabHelpers\Models\City;
-use SanjabHelpers\Models\Province;
+use Baloot\Models\City;
+use Baloot\Models\Province;
 
 class CitiesTableSeeder extends Seeder
 {

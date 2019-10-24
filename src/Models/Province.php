@@ -1,6 +1,6 @@
 <?php
 
-namespace SanjabHelpers\Models;
+namespace Baloot\Models;
 
 use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Model;

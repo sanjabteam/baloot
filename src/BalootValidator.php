@@ -1,10 +1,10 @@
 <?php
 
-namespace SanjabHelpers;
+namespace Baloot;
 
 use Illuminate\Validation\Validator;
 
-class SanjabValidator extends Validator
+class BalootValidator extends Validator
 {
     public $validationMessages = [
         'jdate'                  => ':attribute'.' تاریخ شمسی معتبر نمی باشد.',

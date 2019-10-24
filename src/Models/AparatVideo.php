@@ -1,6 +1,6 @@
 <?php
 
-namespace SanjabHelpers\Models;
+namespace Baloot\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Arr;

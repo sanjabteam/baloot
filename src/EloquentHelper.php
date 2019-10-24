@@ -1,6 +1,6 @@
 <?php
 
-namespace SanjabHelpers;
+namespace Baloot;
 
 use Exception;
 use Hekmatinasser\Verta\Verta;

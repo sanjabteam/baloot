@@ -1,6 +1,6 @@
 <?php
 
-namespace SanjabHelpers\Middleware;
+namespace Baloot\Middleware;
 
 use Closure;
 use Illuminate\Http\UploadedFile;

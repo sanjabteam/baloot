@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Support\Arr;
-use Illuminate\Support\Str;
 
 if (!function_exists("en_to_fa")) {
     /**
@@ -62,7 +61,7 @@ if (!function_exists("aparat_info")) {
         $videoInfos = [];
         foreach ($addresses as $address) {
             if (!empty($address) && preg_match_all("/https:\/\/www.aparat.com\/v\/(.+)(\/?)/", $address, $matches)) {
-                $aparatVideo = \SanjabHelpers\Models\AparatVideo::where('uid', $matches[1][0])->first();
+                $aparatVideo = \Baloot\Models\AparatVideo::where('uid', $matches[1][0])->first();
 
                 if ($aparatVideo == null || $cache == false) {
                     try {
@@ -82,7 +81,7 @@ if (!function_exists("aparat_info")) {
                                     }, $responseBody['tags']);
                                 }
                                 if ($cache) {
-                                    $videoInfos[] = \SanjabHelpers\Models\AparatVideo::create($responseBody);
+                                    $videoInfos[] = \Baloot\Models\AparatVideo::create($responseBody);
                                 } else {
                                     $videoInfos[] = $responseBody;
                                 }

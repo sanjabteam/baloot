@@ -1,11 +1,11 @@
 {
-    "name": "sanjabteam/helpers",
-    "description": "Helpers",
+    "name": "sanjabteam/baloot",
+    "description": "Laravel helper package for iranians",
     "keywords": [
         "sanjabteam",
         "helpers"
     ],
-    "homepage": "https://github.com/sanjabteam/helpers",
+    "homepage": "https://github.com/sanjabteam/baloot",
     "license": "MIT",
     "type": "library",
     "authors": [
@@ -26,7 +26,7 @@
     },
     "autoload": {
         "psr-4": {
-            "SanjabHelpers\\": "src"
+            "Baloot\\": "src"
         },
         "classmap": [
             "database/seeds"
@@ -37,7 +37,7 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "SanjabHelpers\\Tests\\": "tests"
+            "Baloot\\Tests\\": "tests"
         }
     },
     "scripts": {
@@ -51,7 +51,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "SanjabHelpers\\SanjabHelpersServiceProvider"
+                "Baloot\\BalootServiceProvider"
             ]
         }
     }

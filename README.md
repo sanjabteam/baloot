@@ -1,4 +1,6 @@
-# پکیج لاراول مخصوص توسعه دهندگان ایرانی
+# بلوط
+> پکیج لاراول مخصوص توسعه دهندگان ایرانی
+
 من همیشه یه سری کد داشتم که هر بار پروژه جدید ایجاد میکردم هر بار از اول کپی میکردم تو پروژه جدیده.بعد تصمیم گرفتم این رو به صورت یه پکیج در بیارم تا هم خودم و هم همکارام به راحتی بتونیم ازشون استفاده کنیم.
 حالا اگه شما هم فکر میکنین این پکیج میتونه روند توسعه نرم افزار هاتون رو سریع کنه شما هم استفاده کنین. اگه فکر میکنین چیز خاصی هست که مخصوص توسعه دهنده های ایرانی هست اما در این پکیج موجود نیست حتما یه
 
@@ -17,7 +19,7 @@ forkو pull request
 * دیتابیس شهر ها و استان های ایران به همراه روت بایندینگ ها
 * پیدا کردن بانک از روی شماره کارت
 
-- [پکیج لاراول مخصوص توسعه دهندگان ایرانی](#%d9%be%da%a9%db%8c%d8%ac-%d9%84%d8%a7%d8%b1%d8%a7%d9%88%d9%84-%d9%85%d8%ae%d8%b5%d9%88%d8%b5-%d8%aa%d9%88%d8%b3%d8%b9%d9%87-%d8%af%d9%87%d9%86%d8%af%da%af%d8%a7%d9%86-%d8%a7%db%8c%d8%b1%d8%a7%d9%86%db%8c)
+- [بلوط](#%d8%a8%d9%84%d9%88%d8%b7)
   - [نصب](#%d9%86%d8%b5%d8%a8)
   - [کانفیگ](#%da%a9%d8%a7%d9%86%d9%81%db%8c%da%af)
   - [ذخیره و بازیابی تاریخ شمسی](#%d8%b0%d8%ae%db%8c%d8%b1%d9%87-%d9%88-%d8%a8%d8%a7%d8%b2%db%8c%d8%a7%d8%a8%db%8c-%d8%aa%d8%a7%d8%b1%db%8c%d8%ae-%d8%b4%d9%85%d8%b3%db%8c)
@@ -37,19 +39,19 @@ forkو pull request
 ## نصب
 برای نصب شما به لاراول نسخه 6 یا بالاتر نیاز دارید. با استفاده از کومپوزر در پروژه لاراولی خود این پکیج رو نصب کنید.
 ```bash
-composer require sanjabteam/helpers
+composer require sanjabteam/baloot
 ```
 
 بعد هم با این کامند فایل کانفیگ رو بسازین
 
 ```bash
-php artisan vendor:publish --provider=SanjabHelpers\\SanjabHelpersServiceProvider
+php artisan vendor:publish --provider=Baloot\\BalootServiceProvider
 ```
 
 ## کانفیگ
 در فایل
 ```
-config/sanjab_helpers.php
+config/baloot.php
 ```
 میتونین کانفیگ رو تغییر بدین.
 
@@ -73,12 +75,12 @@ config/sanjab_helpers.php
 
 trait
 
-`SanjabHelpers\EloquentHelper`
+`Baloot\EloquentHelper`
 
 رو به مدلی که میخاین اضافه کنین.
 
 ```php
-use SanjabHelpers\EloquentHelper;
+use Baloot\EloquentHelper;
 
 class User extends Model
 {
@@ -117,7 +119,7 @@ created_at, updated_at
 
 داشته باشین که از همین قابلیت پشتیبانی کنه کافیه اون رو به تاریخ [کست](https://laravel.com/docs/6.x/eloquent-mutators#date-casting) کنین.
 ```php
-use SanjabHelpers\EloquentHelper;
+use Baloot\EloquentHelper;
 
 class User extends Model
 {
@@ -141,12 +143,12 @@ $user->birth_date_fa; // Hekmatinasser\Verta\Verta
 
 trait
 
-`SanjabHelpers\EloquentHelper`
+`Baloot\EloquentHelper`
 
 رو به مدلی که میخاین اضافه کنین.
 
 ```php
-use SanjabHelpers\EloquentHelper;
+use Baloot\EloquentHelper;
 
 class Post extends Model
 {
@@ -162,7 +164,7 @@ class Post extends Model
 ```php
 $post = Post::first();
 $post->video = "https://www.aparat.com/v/O4qSP";
-dd($post->video_aparat); // SanjabHelpers\Models\AparatVideo
+dd($post->video_aparat); // Baloot\Models\AparatVideo
 dd($post->video_aparat->title); // ایستگاه جوانمرد راستگو
 dd($post->video_aparat->username); // ding.dong
 dd($post->video_aparat->sender_name); //دینگ دانگ
@@ -199,7 +201,7 @@ $post->video_aparat->visit_cnt; // 26812
 کلاس
 
 ```php
-\SanjabHelpers\Middleware\FixRequestInputs
+\Baloot\Middleware\FixRequestInputs
 ```
 
 به آرایه
@@ -211,7 +213,7 @@ middleware
 ```php
 protected $middleware = [
     ...
-    \SanjabHelpers\Middleware\FixRequestInputs::class,
+    \Baloot\Middleware\FixRequestInputs::class,
 ];
 ```
 
@@ -312,7 +314,7 @@ $faker->aparatVideos($faker->numberBetween(1, 3))
 ```php
 public function run()
 {
-    $this->call(\SanjabHelpers\Database\CitiesTableSeeder::class); // سیدر شهر ها و استان ها
+    $this->call(\Baloot\Database\CitiesTableSeeder::class); // سیدر شهر ها و استان ها
 }
 ```
 
@@ -322,9 +324,9 @@ php artisan migrate --seed
 ```
 حالا جداول شما از شهر ها و استان ها پر شده برای استفاده از دو مدل پایین میتونین استفاده کنین.
 
-`SanjabHelpers\Models\Province`:مدل استان
+`Baloot\Models\Province`:مدل استان
 
-`SanjabHelpers\Models\City`:مدل شهر
+`Baloot\Models\City`:مدل شهر
 
 نمونه:
 ```php
@@ -337,7 +339,7 @@ City::where('name', 'آمل')->first()
 اگه میخاین از استان و شهر در آدرس ها استفاده کنین از این روش استفاده کنین.
 
 ```php
-use SanjabHelpers\Models\Province;
+use Baloot\Models\Province;
 use anjabHelpers\Models\City;
 
 Route::get('test/{province}/{city}', function (Province $province, City $city) {
