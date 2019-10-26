@@ -2,12 +2,11 @@
 
 namespace Baloot;
 
-use Illuminate\Database\Eloquent\Builder;
+use Baloot\Models\City;
+use Baloot\Models\Province;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\ServiceProvider;
-use Baloot\Models\City;
-use Baloot\Models\Province;
 
 class BalootServiceProvider extends ServiceProvider
 {
@@ -33,7 +32,7 @@ class BalootServiceProvider extends ServiceProvider
         ], 'config');
 
         Validator::resolver(function ($translator, $data, $rules, $messages = [], $customAttributes = []) {
-            return new SanjabValidator($translator, $data, $rules, $messages, $customAttributes);
+            return new BalootValidator($translator, $data, $rules, $messages, $customAttributes);
         });
 
         if (config('baloot.geo')) {

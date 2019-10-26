@@ -50,7 +50,7 @@ class BalootFakerProvider extends \Faker\Provider\Base
 
     public function aparatVideo()
     {
-        $videos = \Cache::rememberForEver('sanjab_baloot_aparat_videos', function () {
+        $videos = \Cache::rememberFor('sanjab_baloot_aparat_videos', now()->addHour(), function () {
             $curl = curl_init();
             curl_setopt_array($curl, [
                 CURLOPT_URL => 'https://www.aparat.com/etc/api/categoryVideos/cat/7/perpage/50',
@@ -64,9 +64,6 @@ class BalootFakerProvider extends \Faker\Provider\Base
                     if (is_array($responseBody)) {
                         curl_close($curl);
                         return array_map(function ($videoDetail) {
-                            if (!isset($videoDetail['uid'])) {
-                                dd($videoDetail);
-                            }
                             return $videoDetail['uid'];
                         }, $responseBody);
                     }
