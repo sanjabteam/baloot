@@ -1,4 +1,5 @@
 <div dir="rtl">
+
 # بلوط
 > پکیج لاراول مخصوص توسعه دهندگان ایرانی
 
@@ -9,7 +10,11 @@ forkو pull request
 
 مهمون کنین :).
 
-![Build status](https://api.travis-ci.org/sanjabteam/baloot.svg?branch=master)
+<p align="center">
+
+[![Build Status](https://img.shields.io/travis/sanjabteam/baloot/master.svg?style=flat-square)](https://travis-ci.org/sanjabteam/baloot)
+
+</p>
 
 امکانات:
 * ذخیره و بازیابی تاریخ شمسی در الوکوئنت
@@ -40,21 +45,34 @@ forkو pull request
 
 ## نصب
 برای نصب شما به لاراول نسخه 6 یا بالاتر نیاز دارید. با استفاده از کومپوزر در پروژه لاراولی خود این پکیج رو نصب کنید.
+<div dir="ltr">
+
 ```bash
 composer require sanjabteam/baloot
 ```
 
+</div>
+
 بعد هم با این کامند فایل کانفیگ رو بسازین
+
+<div dir="ltr">
 
 ```bash
 php artisan vendor:publish --provider=Baloot\\BalootServiceProvider
 ```
 
+</div>
+
 ## کانفیگ
 در فایل
+<div dir="ltr">
+
 ```
 config/baloot.php
 ```
+
+</div>
+
 میتونین کانفیگ رو تغییر بدین.
 
 `geo`:
@@ -81,6 +99,8 @@ trait
 
 رو به مدلی که میخاین اضافه کنین.
 
+<div dir="ltr">
+
 ```php
 use Baloot\EloquentHelper;
 
@@ -89,11 +109,17 @@ class User extends Model
     use EloquentHelper; // trait
 }
 ```
+
+</div>
+
 بعد به راحتی میتونین به صورت شمسی به مشخصات دسترسی داشته باشین. فقط کافیه به فیلد مورد نظرتون پسوند
 
 `_fa`
 
 اضافه کنید.
+
+<div dir="ltr">
+
 ```php
 $user = User::where(...)->first();
 $user->created_at_fa // به صورت کلاس Hekmatinasser\Verta\Verta
@@ -102,10 +128,16 @@ $user->created_at_fa_ft // 1390/1/1 12:00
 $user->created_at_fa_ftt // 1390/1/1 12:00:00
 $user->updated_at_fa->format("%B %d %Y") // فروردین 01 1390
 ```
+
+</div>
+
 برای مدیریت بهتر میتونین به مستندات
 [ورتا](https://github.com/hekmatinasser/verta)
 .مراجعه کنین
 همچنین با تنظیم کردن تاریخ هم از همین روش استفاده کنین.
+
+<div dir="ltr">
+
 ```php
 $user->created_at_fa = Verta::createJalaliDate(1390, 1, 1);
 dd($user->created_at); // Illuminate\Support\Carbon { date: 2011-03-21 }
@@ -114,12 +146,18 @@ dd($user->created_at); // Illuminate\Support\Carbon { date: 2013-03-21 }
 $user->created_at_fa = "1395/1/1 14:22:11";
 dd($user->created_at); // Illuminate\Support\Carbon { date: 2016-03-20 14:22:11 }
 ```
+
+</div>
+
 ### استفاده از اتریبیوت های دلخواه
 اگه میخاین یه فیلد دلخواه به جز
 
 created_at, updated_at
 
 داشته باشین که از همین قابلیت پشتیبانی کنه کافیه اون رو به تاریخ [کست](https://laravel.com/docs/6.x/eloquent-mutators#date-casting) کنین.
+
+<div dir="ltr">
+
 ```php
 use Baloot\EloquentHelper;
 
@@ -134,10 +172,18 @@ class User extends Model
     ];
 }
 ```
+
+</div>
+
 و بازم هم به همون روش میتونین بهش دسترسی داشته باشین.
+
+<div dir="ltr">
+
 ```php
 $user->birth_date_fa; // Hekmatinasser\Verta\Verta
 ```
+
+</div>
 
 ## مشخصات ویدیو آپارات
 این پکیج این امکان رو به شما میده تا به راحتی مشخصات یه فیلم رو از [ای پی آی آپارات](https://aparat.com/api) از طریق آدرس فیلم دریافت کنین.
@@ -149,6 +195,9 @@ trait
 
 رو به مدلی که میخاین اضافه کنین.
 
+
+<div dir="ltr">
+
 ```php
 use Baloot\EloquentHelper;
 
@@ -157,11 +206,16 @@ class Post extends Model
     use EloquentHelper; // trait
 }
 ```
+
+</div>
+
 بعد فقط کافیه که آدرس فیلم رو درون یه فیلد ذخیره کنین. بعد با پسوند
 
 `_aparat`
 
 به مشخصاتش دسترسی پیدا کنین.
+
+<div dir="ltr">
 
 ```php
 $post = Post::first();
@@ -172,11 +226,19 @@ dd($post->video_aparat->username); // ding.dong
 dd($post->video_aparat->sender_name); //دینگ دانگ
 ```
 
+</div>
+
 اگه میخاین مستقیم و بدون مدل به مشخصات دسترسی داشته باشین از این تابع استفاده کنین.
+
+
+<div dir="ltr">
 
 ```php
 aparat_info(["https://www.aparat.com/v/O4qSP"]);
 ```
+
+</div>
+
 مشخصات کامل: [AparatVideo](./src/Models/AparatVideo.php)
 
 
@@ -187,11 +249,16 @@ aparat_info(["https://www.aparat.com/v/O4qSP"]);
 
 بهتون تحویل میده و حسابی دردسر درست میکنه براتون برای همین من مشخصات فیلم ها داخل دیتابیس ذخیره میکنم بنابراین مشخصات فیلم تا زمانی که خودتون نخواید تغییری نمیکنه. یه سری چیز ها مثل تعداد بازدید و تعداد لایک خیلی سریع تغییر میکنن اما به نظرم ارزش اینو ندارن که عاقبتتون 429 بشه.
 برای بروز کردن مشخصات فیلم کافیه که از این روش استفاده کنین.
+
+<div dir="ltr">
+
 ```php
 $post->video_aparat->visit_cnt; // 26550
 $post->video_aparat->reload();
 $post->video_aparat->visit_cnt; // 26812
 ```
+
+</div>
 
 ## میدلویر
 یکی از مشکلاتی که تو پروژه ها سر و کله میزنم باهاشون یکی اعداد فارسی هست. مثلا طرف میاد موقع ثبت نام رمز عبورش رو با عدد فارسی میزنه بعد موقع ورود با عدد انگلیسی بعد این وسط میگه رمز عبورش اشتباهه درصورتی که اینطوری نیست.
@@ -202,9 +269,13 @@ $post->video_aparat->visit_cnt; // 26812
 
 کلاس
 
+<div dir="ltr">
+
 ```php
 \Baloot\Middleware\FixRequestInputs
 ```
+
+</div>
 
 به آرایه
 
@@ -212,12 +283,16 @@ middleware
 
 اضافه کنین
 
+<div dir="ltr">
+
 ```php
 protected $middleware = [
     ...
     \Baloot\Middleware\FixRequestInputs::class,
 ];
 ```
+
+</div>
 
 به همین راحتی برای همیشه هم با مشکل اعداد فارسی و هم مشکل حروف عربی خداحافظی کنین.
 
@@ -230,6 +305,9 @@ iran_mobile:
 برای ولیدیشن شماره موبایل های ایرانی
 
 برای استفاده:
+
+<div dir="ltr">
+
 ```php
 public function test(Request $request)
 {
@@ -240,6 +318,8 @@ public function test(Request $request)
 }
 ```
 
+</div>
+
 > این قسمت نیاز به بهبود دارد
 
 ## فیکر
@@ -249,9 +329,13 @@ paragraph
 
 CustomImage:
 
+<div dir="ltr">
+
 ```php
 customImage($path, $width, $height, $prefix)
 ```
+
+</div>
 
 این فیکر عکس از سایت
 
@@ -265,45 +349,75 @@ $height: عرض عکس
 $prefix: به طور پیشفرض فقط نام عکس بهتون داده میشه با کمک این میتونین یه پیشوند به اسم عکس اضافه کنین
 
 نمونه:
+
+<div dir="ltr">
+
 ```php
 'image' => $faker->customImage(public_path('uploads/fake'), 640, 480, 'fake/')
 ```
+
+</div>
+
 همچنین اگه میخاین یه آرایه از عکس داشته باشین
+
+<div dir="ltr">
 
 ```php
 $faker->customImages(public_path('uploads/fake'), 640, 480, $faker->numberBetween(1, 3), 'fake/')
 ```
+
+</div>
+
 چهارمین پارامتر تعداد عکس هایی که لازم دارین رو ازتون دریافت میکنه.
 
 iranMobile:
 
 یه شماره موبایل ایرانی براتون میسازه
 
+<div dir="ltr">
+
 ```php
 $faker->iranMobile
 ```
+
+</div>
 
 iranPhone:
 
 یه شماره موبایل ایرانی براتون میسازه
 
+<div dir="ltr">
+
 ```php
 $faker->iranPhone
 ```
+
+</div>
 
 aparatVideo:
 
 آدرس یه فیلم در آپارات به فراهم میکنه.
 
+
+<div dir="ltr">
+
 ```php
 $faker->aparatVideo
 ```
 
+</div>
+
 اگه آرایه ای از فیلم ها میخاید.
+
+
+<div dir="ltr">
 
 ```php
 $faker->aparatVideos($faker->numberBetween(1, 3))
 ```
+
+</div>
+
 پارامتر تعداد فیلم هایی که لازم دارین رو ازتون دریافت میکنه.
 
 ## استان ها و شهرها
@@ -313,12 +427,17 @@ $faker->aparatVideos($faker->numberBetween(1, 3))
 
 این قسمت رو اضافه کنید.
 
+
+<div dir="ltr">
+
 ```php
 public function run()
 {
     $this->call(\Baloot\Database\CitiesTableSeeder::class); // سیدر شهر ها و استان ها
 }
 ```
+
+</div>
 
 سپس بعد از میگریت سید رو انجام بدین.
 ```bash
@@ -331,14 +450,22 @@ php artisan migrate --seed
 `Baloot\Models\City`:مدل شهر
 
 نمونه:
+
+<div dir="ltr">
+
 ```php
 use anjabHelpers\Models\City;
 
 City::where('name', 'آمل')->first()
 ```
 
+</div>
+
 ### روت بایندینگ
 اگه میخاین از استان و شهر در آدرس ها استفاده کنین از این روش استفاده کنین.
+
+
+<div dir="ltr">
 
 ```php
 use Baloot\Models\Province;
@@ -349,6 +476,9 @@ Route::get('test/{province}/{city}', function (Province $province, City $city) {
     // ...
 });
 ```
+
+</div>
+
 و سپس آدرس زیر رو باز کنید.
 
 `/test/27/1068`
@@ -395,13 +525,25 @@ slug
 ## اسلاگ
 همونطور که میدونین در لاراول با تابع
 
+
+<div dir="ltr">
+
 ```php
 Str::slug('test test')
 ```
+
+</div>
+
 میشه یه اسلاگ برای آدرس دهی درست کرد اما اگه فارسی به این تابع بدین
+
+<div dir="ltr">
+
 ```php
 Str::slug('خونه ی مادربزرگه')
 ```
+
+</div>
+
 خروجی
 
 `"khonh-i-madrbzrgh"`
@@ -409,9 +551,15 @@ Str::slug('خونه ی مادربزرگه')
 میده که یه جورایی سعی کرده به فینگلیش تبدیلش کنه اما با تابع
 `str_to_slug`
 این پکیج به راحتی حروف فارسی رو هم مدیریت میکنه
+
+<div dir="ltr">
+
 ```php
 str_to_slug('خونه ی مادربزرگه')
 ```
+
+</div>
+
 `"خونه-ی-مادربزرگه"`
 
 ### استفاده با پکیج Eloquent Sluggable
@@ -425,17 +573,31 @@ method
 
 رو این شکلی بنویسین.
 
+
+<div dir="ltr">
+
 ```php
 'method' => 'str_to_slug',
 ```
 
+</div>
+
 ## پیداکردن بانک از روی شماره کارت
 برای پیدا کردن بانک از روی شماره کارت از این تابع استفاده کنین.
+
+
+<div dir="ltr">
 
 ```php
 find_bank_by_card_number("6037697531")
 ```
+
+</div>
+
 خروجی:
+
+<div dir="ltr">
+
 ```php
 [
     "class" => "bsi",
@@ -443,6 +605,9 @@ find_bank_by_card_number("6037697531")
     "card_prefix" => "603769",
 ]
 ```
+
+</div>
+
 کلاس, نام کلاس بر اساس [این پکیج](https://github.com/webdesigniran/IranianBankLogos) هست.
 
 
@@ -454,4 +619,4 @@ find_bank_by_card_number("6037697531")
 - [TestBench](https://github.com/orchestral/testbench)
 - [Verta](https://github.com/hekmatinasser/verta)
 
-</div>
+</>
