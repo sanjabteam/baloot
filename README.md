@@ -1,3 +1,4 @@
+<div dir="rtl">
 # بلوط
 > پکیج لاراول مخصوص توسعه دهندگان ایرانی
 
@@ -452,3 +453,5 @@ find_bank_by_card_number("6037697531")
 - [ّIran Cities](https://github.com/ahmadazizi/iran-cities)
 - [TestBench](https://github.com/orchestral/testbench)
 - [Verta](https://github.com/hekmatinasser/verta)
+
+</div>
