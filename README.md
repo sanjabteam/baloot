@@ -1,6 +1,7 @@
+<h1 align="center">بلوط</h1>
+
 <div dir="rtl">
 
-# بلوط
 > پکیج لاراول مخصوص توسعه دهندگان ایرانی
 
 من همیشه یه سری کد داشتم که هر بار پروژه جدید ایجاد میکردم هر بار از اول کپی میکردم تو پروژه جدیده.بعد تصمیم گرفتم این رو به صورت یه پکیج در بیارم تا هم خودم و هم همکارام به راحتی بتونیم ازشون استفاده کنیم.
@@ -12,7 +13,7 @@ forkو pull request
 
 <p align="center">
 
-[![Build Status](https://img.shields.io/travis/sanjabteam/baloot/master.svg?style=flat-square)](https://travis-ci.org/sanjabteam/baloot)
+[![Build Status](https://travis-ci.org/sanjabteam/baloot.svg?branch=master)](https://travis-ci.org/sanjabteam/baloot)
 
 </p>
 
@@ -26,25 +27,25 @@ forkو pull request
 * دیتابیس شهر ها و استان های ایران به همراه روت بایندینگ ها
 * پیدا کردن بانک از روی شماره کارت
 
-- [بلوط](#%d8%a8%d9%84%d9%88%d8%b7)
-  - [نصب](#%d9%86%d8%b5%d8%a8)
-  - [کانفیگ](#%da%a9%d8%a7%d9%86%d9%81%db%8c%da%af)
-  - [ذخیره و بازیابی تاریخ شمسی](#%d8%b0%d8%ae%db%8c%d8%b1%d9%87-%d9%88-%d8%a8%d8%a7%d8%b2%db%8c%d8%a7%d8%a8%db%8c-%d8%aa%d8%a7%d8%b1%db%8c%d8%ae-%d8%b4%d9%85%d8%b3%db%8c)
-    - [استفاده از اتریبیوت های دلخواه](#%d8%a7%d8%b3%d8%aa%d9%81%d8%a7%d8%af%d9%87-%d8%a7%d8%b2-%d8%a7%d8%aa%d8%b1%db%8c%d8%a8%db%8c%d9%88%d8%aa-%d9%87%d8%a7%db%8c-%d8%af%d9%84%d8%ae%d9%88%d8%a7%d9%87)
-  - [مشخصات ویدیو آپارات](#%d9%85%d8%b4%d8%ae%d8%b5%d8%a7%d8%aa-%d9%88%db%8c%d8%af%db%8c%d9%88-%d8%a2%d9%be%d8%a7%d8%b1%d8%a7%d8%aa)
-    - [نکته بسیار مهم](#%d9%86%da%a9%d8%aa%d9%87-%d8%a8%d8%b3%db%8c%d8%a7%d8%b1-%d9%85%d9%87%d9%85)
-  - [میدلویر](#%d9%85%db%8c%d8%af%d9%84%d9%88%db%8c%d8%b1)
-  - [ولیدیشن](#%d9%88%d9%84%db%8c%d8%af%db%8c%d8%b4%d9%86)
-  - [فیکر](#%d9%81%db%8c%da%a9%d8%b1)
-  - [استان ها و شهرها](#%d8%a7%d8%b3%d8%aa%d8%a7%d9%86-%d9%87%d8%a7-%d9%88-%d8%b4%d9%87%d8%b1%d9%87%d8%a7)
-    - [روت بایندینگ](#%d8%b1%d9%88%d8%aa-%d8%a8%d8%a7%db%8c%d9%86%d8%af%db%8c%d9%86%da%af)
-  - [اسلاگ](#%d8%a7%d8%b3%d9%84%d8%a7%da%af)
-    - [استفاده با پکیج Eloquent Sluggable](#%d8%a7%d8%b3%d8%aa%d9%81%d8%a7%d8%af%d9%87-%d8%a8%d8%a7-%d9%be%da%a9%db%8c%d8%ac-eloquent-sluggable)
-  - [پیداکردن بانک از روی شماره کارت](#%d9%be%db%8c%d8%af%d8%a7%da%a9%d8%b1%d8%af%d9%86-%d8%a8%d8%a7%d9%86%da%a9-%d8%a7%d8%b2-%d8%b1%d9%88%db%8c-%d8%b4%d9%85%d8%a7%d8%b1%d9%87-%da%a9%d8%a7%d8%b1%d8%aa)
-  - [ساخته شده با کمک](#%d8%b3%d8%a7%d8%ae%d8%aa%d9%87-%d8%b4%d8%af%d9%87-%d8%a8%d8%a7-%da%a9%d9%85%da%a9)
+- [نصب](#%d9%86%d8%b5%d8%a8)
+- [کانفیگ](#%da%a9%d8%a7%d9%86%d9%81%db%8c%da%af)
+- [ذخیره و بازیابی تاریخ شمسی](#%d8%b0%d8%ae%db%8c%d8%b1%d9%87-%d9%88-%d8%a8%d8%a7%d8%b2%db%8c%d8%a7%d8%a8%db%8c-%d8%aa%d8%a7%d8%b1%db%8c%d8%ae-%d8%b4%d9%85%d8%b3%db%8c)
+  - [استفاده از اتریبیوت های دلخواه](#%d8%a7%d8%b3%d8%aa%d9%81%d8%a7%d8%af%d9%87-%d8%a7%d8%b2-%d8%a7%d8%aa%d8%b1%db%8c%d8%a8%db%8c%d9%88%d8%aa-%d9%87%d8%a7%db%8c-%d8%af%d9%84%d8%ae%d9%88%d8%a7%d9%87)
+- [مشخصات ویدیو آپارات](#%d9%85%d8%b4%d8%ae%d8%b5%d8%a7%d8%aa-%d9%88%db%8c%d8%af%db%8c%d9%88-%d8%a2%d9%be%d8%a7%d8%b1%d8%a7%d8%aa)
+  - [نکته بسیار مهم](#%d9%86%da%a9%d8%aa%d9%87-%d8%a8%d8%b3%db%8c%d8%a7%d8%b1-%d9%85%d9%87%d9%85)
+- [میدلویر](#%d9%85%db%8c%d8%af%d9%84%d9%88%db%8c%d8%b1)
+- [ولیدیشن](#%d9%88%d9%84%db%8c%d8%af%db%8c%d8%b4%d9%86)
+- [فیکر](#%d9%81%db%8c%da%a9%d8%b1)
+- [استان ها و شهرها](#%d8%a7%d8%b3%d8%aa%d8%a7%d9%86-%d9%87%d8%a7-%d9%88-%d8%b4%d9%87%d8%b1%d9%87%d8%a7)
+  - [روت بایندینگ](#%d8%b1%d9%88%d8%aa-%d8%a8%d8%a7%db%8c%d9%86%d8%af%db%8c%d9%86%da%af)
+- [اسلاگ](#%d8%a7%d8%b3%d9%84%d8%a7%da%af)
+  - [استفاده با پکیج Eloquent Sluggable](#%d8%a7%d8%b3%d8%aa%d9%81%d8%a7%d8%af%d9%87-%d8%a8%d8%a7-%d9%be%da%a9%db%8c%d8%ac-eloquent-sluggable)
+- [پیداکردن بانک از روی شماره کارت](#%d9%be%db%8c%d8%af%d8%a7%da%a9%d8%b1%d8%af%d9%86-%d8%a8%d8%a7%d9%86%da%a9-%d8%a7%d8%b2-%d8%b1%d9%88%db%8c-%d8%b4%d9%85%d8%a7%d8%b1%d9%87-%da%a9%d8%a7%d8%b1%d8%aa)
+- [ساخته شده با کمک](#%d8%b3%d8%a7%d8%ae%d8%aa%d9%87-%d8%b4%d8%af%d9%87-%d8%a8%d8%a7-%da%a9%d9%85%da%a9)
 
 ## نصب
 برای نصب شما به لاراول نسخه 6 یا بالاتر نیاز دارید. با استفاده از کومپوزر در پروژه لاراولی خود این پکیج رو نصب کنید.
+
 <div dir="ltr">
 
 ```bash
@@ -53,7 +54,7 @@ composer require sanjabteam/baloot
 
 </div>
 
-بعد هم با این کامند فایل کانفیگ رو بسازین
+بعد هم با این کامند فایل کانفیگ رو بسازین.
 
 <div dir="ltr">
 
@@ -95,7 +96,11 @@ config/baloot.php
 
 trait
 
+<div dir="ltr">
+
 `Baloot\EloquentHelper`
+
+</div>
 
 رو به مدلی که میخاین اضافه کنین.
 
@@ -114,7 +119,11 @@ class User extends Model
 
 بعد به راحتی میتونین به صورت شمسی به مشخصات دسترسی داشته باشین. فقط کافیه به فیلد مورد نظرتون پسوند
 
+<div dir="ltr">
+
 `_fa`
+
+</div>
 
 اضافه کنید.
 
@@ -191,7 +200,11 @@ $user->birth_date_fa; // Hekmatinasser\Verta\Verta
 
 trait
 
+<div dir="ltr">
+
 `Baloot\EloquentHelper`
+
+</div>
 
 رو به مدلی که میخاین اضافه کنین.
 
@@ -211,7 +224,11 @@ class Post extends Model
 
 بعد فقط کافیه که آدرس فیلم رو درون یه فیلد ذخیره کنین. بعد با پسوند
 
+<div dir="ltr">
+
 `_aparat`
+
+</div>
 
 به مشخصاتش دسترسی پیدا کنین.
 
@@ -423,7 +440,11 @@ $faker->aparatVideos($faker->numberBetween(1, 3))
 ## استان ها و شهرها
 برای شروع در
 
+<div dir="ltr">
+
 `DatabaseSeeder.php`
+
+</div>
 
 این قسمت رو اضافه کنید.
 
@@ -445,9 +466,11 @@ php artisan migrate --seed
 ```
 حالا جداول شما از شهر ها و استان ها پر شده برای استفاده از دو مدل پایین میتونین استفاده کنین.
 
-`Baloot\Models\Province`:مدل استان
+مدل استان:
+`Baloot\Models\Province`
 
-`Baloot\Models\City`:مدل شهر
+مدل شهر:
+`Baloot\Models\City`
 
 نمونه:
 
@@ -619,4 +642,4 @@ find_bank_by_card_number("6037697531")
 - [TestBench](https://github.com/orchestral/testbench)
 - [Verta](https://github.com/hekmatinasser/verta)
 
-</>
+</div>
