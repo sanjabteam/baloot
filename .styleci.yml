@@ -1,4 +1,5 @@
-php:
-  preset: laravel
-  enabled:
-    - length_ordered_imports
+preset: recommended
+risky: true
+finder:
+  name: "*.php"
+  not-name: "*.blade.php"
