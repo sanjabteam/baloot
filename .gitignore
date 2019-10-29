@@ -6,3 +6,4 @@ coverage
 .phpunit.result.cache
 coverage.clover
 .php_cs.cache
+.vscode

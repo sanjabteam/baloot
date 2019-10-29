@@ -2,6 +2,8 @@
 
 namespace Baloot;
 
+use Illuminate\Support\Arr;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\File;
 
 class BalootFakerProvider extends \Faker\Provider\Base
@@ -52,7 +54,7 @@ class BalootFakerProvider extends \Faker\Provider\Base
 
     public function aparatVideo()
     {
-        $videos = \Cache::rememberFor('sanjab_baloot_aparat_videos', now()->addHour(), function () {
+        $videos = Cache::remember('sanjab_baloot_aparat_videos', now()->addHour(), function () {
             $curl = curl_init();
             curl_setopt_array($curl, [
                 CURLOPT_URL => 'https://www.aparat.com/etc/api/categoryVideos/cat/7/perpage/50',
@@ -72,13 +74,12 @@ class BalootFakerProvider extends \Faker\Provider\Base
                     }
                 }
             }
-            curl_close($curl);
         });
         if (is_array($videos)) {
-            return 'https://www.aparat.com/v/'.array_random($videos);
+            return 'https://www.aparat.com/v/'.Arr::random($videos);
         }
-
-        return 'https://www.aparat.com/v/'.array_random([
+        // @codeCoverageIgnoreStart
+        return 'https://www.aparat.com/v/'.Arr::random([
             'IAN6z', 'xrAb8', 'w7NMS', '0fFhg', 'uCgQd',
             'hK5fF', 'arsHC', '43aZ8', 'syI7N', 'XaN3o',
             'YJpM1', 'TSAz1', 'sQBq4', 'Y7AZF', 'dNn3M',
@@ -92,6 +93,7 @@ class BalootFakerProvider extends \Faker\Provider\Base
             'rUC8l', '6yoBO', 'aoE2p', 'slKDV', '2Dun4',
             'L4J1F', 'dwWTy', 'a6PqK', 'bDaPX', 'pRPSt',
         ]);
+        // @codeCoverageIgnoreEnd
     }
 
     public function aparatVideos($count)
@@ -106,7 +108,7 @@ class BalootFakerProvider extends \Faker\Provider\Base
 
     public function word()
     {
-        return array_random(explode(' ', $this->generator->realText()));
+        return Arr::random(explode(' ', $this->generator->realText()));
     }
 
     public function sentence()
