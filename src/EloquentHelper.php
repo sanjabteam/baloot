@@ -16,10 +16,11 @@ trait EloquentHelper
                 if ($matches[2] == '_f') {
                     return $attributeValue->formatJalaliDate();
                 } elseif ($matches[2] == '_ft') {
-                    return $attributeValue->format("Y/n/j H:i");
+                    return $attributeValue->format('Y/n/j H:i');
                 } elseif ($matches[2] == '_ftt') {
                     return $attributeValue->formatJalaliDatetime();
                 }
+
                 return $attributeValue;
             }
         }
@@ -32,6 +33,7 @@ trait EloquentHelper
                 return $info;
             }
         }
+
         return parent::getAttribute($key);
     }
 
@@ -50,6 +52,7 @@ trait EloquentHelper
                 }
             }
         }
+
         return parent::setAttribute($key, $value);
     }
 }

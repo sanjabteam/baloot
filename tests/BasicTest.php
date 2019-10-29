@@ -3,11 +3,11 @@
 namespace Baloot\Tests;
 
 use Carbon\Carbon;
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Artisan;
-use Orchestra\Testbench\TestCase;
 use Baloot\EloquentHelper;
+use Illuminate\Http\Request;
+use Orchestra\Testbench\TestCase;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Artisan;
 
 class BasicTest extends TestCase
 {
@@ -33,9 +33,9 @@ class BasicTest extends TestCase
                 'test_arabic' => 'ك,ي',
                 'arr2' => [
                     'test_fa' => '۱۲۳۴۵۶۷۸۹۰',
-                    'test_arabic' => 'ك,ي'
-                ]
-            ]
+                    'test_arabic' => 'ك,ي',
+                ],
+            ],
         ]);
 
         $middleware = new \Baloot\Middleware\FixRequestInputs;
@@ -73,24 +73,24 @@ class BasicTest extends TestCase
             use EloquentHelper;
 
             protected $casts = [
-                'birth_date' => 'date'
+                'birth_date' => 'date',
             ];
         };
         $model->setDateFormat('Y/j/d');
         // getter
         $model->birth_date = Carbon::createFromDate(2001, 12, 11);
         $this->assertEquals(verta($model->birth_date)->formatJalaliDate(), $model->birth_date_fa_f);
-        $this->assertEquals(verta($model->birth_date)->format("Y/n/j H:i"), $model->birth_date_fa_ft);
+        $this->assertEquals(verta($model->birth_date)->format('Y/n/j H:i'), $model->birth_date_fa_ft);
         $this->assertEquals(verta($model->birth_date)->formatJalaliDateTime(), $model->birth_date_fa_ftt);
 
         // setter
-        $model->birth_date_fa = "1370/1/1";
-        $this->assertEquals($model->birth_date->format("Y-m-d"), "1991-10-21");
+        $model->birth_date_fa = '1370/1/1';
+        $this->assertEquals($model->birth_date->format('Y-m-d'), '1991-10-21');
 
         // aparat
-        $model->video = "https://www.aparat.com/v/O4qSP";
+        $model->video = 'https://www.aparat.com/v/O4qSP';
         if ($model->video_aparat instanceof \Baloot\Models\AparatVideo) {
-            $this->assertEquals("ایستگاه جوانمرد راستگو", $model->video_aparat->title);
+            $this->assertEquals('ایستگاه جوانمرد راستگو', $model->video_aparat->title);
         }
     }
 

@@ -20,11 +20,12 @@ class FixRequestInputs
         $allInputs = $this->removeArabicCharacters($allInputs);
         $allInputs = $this->removePersianNumbers($allInputs);
         $request->replace($allInputs);
+
         return $next($request);
     }
 
     /**
-     * Convert arabic (ك), (ي) to persian (ک),(ی)
+     * Convert arabic (ك), (ي) to persian (ک),(ی).
      *
      * @param array $inputs
      * @return array
@@ -34,7 +35,7 @@ class FixRequestInputs
         foreach ($inputs as $key => $value) {
             if (is_array($value)) {
                 $inputs[$key] = $this->removeArabicCharacters($value);
-            } elseif (!($value instanceof UploadedFile) && is_string($value)) {
+            } elseif (! ($value instanceof UploadedFile) && is_string($value)) {
                 $inputs[$key] = str_replace(
                     ['ي', 'ك'],
                     ['ی', 'ک'],
@@ -42,11 +43,12 @@ class FixRequestInputs
                 );
             }
         }
+
         return $inputs;
     }
 
     /**
-     * Convert Persian numbers to english numbers
+     * Convert Persian numbers to english numbers.
      *
      * @param array $inputs
      * @return array
@@ -56,10 +58,11 @@ class FixRequestInputs
         foreach ($inputs as $key => $value) {
             if (is_array($value)) {
                 $inputs[$key] = $this->removePersianNumbers($value);
-            } elseif (!($value instanceof UploadedFile) && is_string($value)) {
+            } elseif (! ($value instanceof UploadedFile) && is_string($value)) {
                 $inputs[$key] = fa_to_en($value);
             }
         }
+
         return $inputs;
     }
 }
