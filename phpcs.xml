@@ -4,7 +4,6 @@
     <file>src/</file>
     <exclude-pattern>build</exclude-pattern>
     <exclude-pattern>vendor</exclude-pattern>
-    <exclude-pattern>resources</exclude-pattern>
     <exclude-pattern>database/</exclude-pattern>
     <exclude-pattern>storage/</exclude-pattern>
 </ruleset>
