@@ -74,7 +74,20 @@ class BalootFakerProvider extends \Faker\Provider\Base
         if (is_array($videos)) {
             return "https://www.aparat.com/v/".array_random($videos);
         }
-        return "https://www.aparat.com/v/".array_random(["IAN6z","xrAb8","w7NMS","0fFhg","uCgQd","hK5fF","arsHC","43aZ8","syI7N","XaN3o","YJpM1","TSAz1","sQBq4","Y7AZF","dNn3M","uR7DI","TZ63C","8T3hA","NdqEn","xCFnE","mL21e","ZkGp8","MV9RW","jicTW","Ikan1","Ylj9x","3Qmhd","jWqud","6VeK8","fic92","fdQXx","UQ2jS","RrctN","EutTQ","evc7o","CugP3","1T08s","eTFxk","UF8xV","Qn8CF","xtKbg","hTWBg","wWBU7","zt90l","fjyRd","VPvu3","iaCV3","4r9IK","m1gxT","XonZx","rUC8l","6yoBO","aoE2p","slKDV","2Dun4","L4J1F","dwWTy","a6PqK","bDaPX","pRPSt"]);
+        return "https://www.aparat.com/v/".array_random([
+            "IAN6z","xrAb8","w7NMS","0fFhg","uCgQd",
+            "hK5fF","arsHC","43aZ8","syI7N","XaN3o",
+            "YJpM1","TSAz1","sQBq4","Y7AZF","dNn3M",
+            "uR7DI","TZ63C","8T3hA","NdqEn","xCFnE",
+            "mL21e","ZkGp8","MV9RW","jicTW","Ikan1",
+            "Ylj9x","3Qmhd","jWqud","6VeK8","fic92",
+            "fdQXx","UQ2jS","RrctN","EutTQ","evc7o",
+            "CugP3","1T08s","eTFxk","UF8xV","Qn8CF",
+            "xtKbg","hTWBg","wWBU7","zt90l","fjyRd",
+            "VPvu3","iaCV3","4r9IK","m1gxT","XonZx",
+            "rUC8l","6yoBO","aoE2p","slKDV","2Dun4",
+            "L4J1F","dwWTy","a6PqK","bDaPX","pRPSt"
+        ]);
     }
 
     public function aparatVideos($count)

@@ -2,6 +2,7 @@
     "name": "sanjabteam/baloot",
     "description": "Laravel helper package for iranians",
     "keywords": [
+        "laravel",
         "sanjabteam",
         "helpers"
     ],
@@ -17,8 +18,8 @@
     "require": {
         "php": "^7.1",
         "hekmatinasser/verta": "^1.10",
-        "illuminate/support": "^6.0",
-        "cviebrock/eloquent-sluggable": "^6.0"
+        "illuminate/support": "^6",
+        "cviebrock/eloquent-sluggable": "^6"
     },
     "require-dev": {
         "orchestra/testbench": "^4.0",

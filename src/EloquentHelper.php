@@ -3,8 +3,8 @@
 namespace Baloot;
 
 use Exception;
-use Hekmatinasser\Verta\Verta;
 use Illuminate\Support\Arr;
+use Hekmatinasser\Verta\Verta;
 
 trait EloquentHelper
 {

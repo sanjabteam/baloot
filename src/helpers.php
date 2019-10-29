@@ -44,7 +44,11 @@ if (!function_exists("str_to_slug")) {
     {
         $string = trim(mb_strtolower($string));
         $string = preg_replace('!['.preg_quote($separator === '-' ? '_' : '-').']+!u', $separator, $string);
-        return preg_replace("/\\" . $separator . "{2,}/", $separator, preg_replace('/[^A-Za-z0-9\x{0600}-\x{06FF}]/ui', $separator, $string));
+        return preg_replace(
+            "/\\" . $separator . "{2,}/",
+            $separator,
+            preg_replace('/[^A-Za-z0-9\x{0600}-\x{06FF}]/ui', $separator, $string)
+        );
     }
 }
 

@@ -2,8 +2,8 @@
 
 namespace Baloot\Models;
 
-use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Model;
+use Cviebrock\EloquentSluggable\Sluggable;
 
 /**
  * @property string $name           name of province

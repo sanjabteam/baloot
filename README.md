@@ -1,21 +1,28 @@
 <h1 align="center">بلوط</h1>
 
+![Baloot](./images/banner.jpg)
+
 <div dir="rtl">
 
 > پکیج لاراول مخصوص توسعه دهندگان ایرانی
+
+<p align="center">
+
+[![Latest Stable Version](https://poser.pugx.org/sanjabteam/baloot/v/stable)](https://packagist.org/packages/sanjabteam/baloot)
+[![Total Downloads](https://poser.pugx.org/sanjabteam/baloot/downloads)](https://packagist.org/packages/sanjabteam/baloot)
+[![Build Status](https://travis-ci.org/sanjabteam/baloot.svg?branch=master)](https://travis-ci.org/sanjabteam/baloot)
+[![Code Style](https://github.styleci.io/repos/214197383/shield)](https://github.styleci.io/repos/214197383)
+[![License](https://poser.pugx.org/sanjabteam/baloot/license)](https://packagist.org/packages/sanjabteam/baloot)
+
+</p>
 
 من همیشه یه سری کد داشتم که هر بار پروژه جدید ایجاد میکردم هر بار از اول کپی میکردم تو پروژه جدیده.بعد تصمیم گرفتم این رو به صورت یه پکیج در بیارم تا هم خودم و هم همکارام به راحتی بتونیم ازشون استفاده کنیم.
 حالا اگه شما هم فکر میکنین این پکیج میتونه روند توسعه نرم افزار هاتون رو سریع کنه شما هم استفاده کنین. اگه فکر میکنین چیز خاصی هست که مخصوص توسعه دهنده های ایرانی هست اما در این پکیج موجود نیست حتما یه
 
 forkو pull request
 
-مهمون کنین :).
+مهمون کنین 😁.
 
-<p align="center">
-
-[![Build Status](https://travis-ci.org/sanjabteam/baloot.svg?branch=master)](https://travis-ci.org/sanjabteam/baloot)
-
-</p>
 
 امکانات:
 * ذخیره و بازیابی تاریخ شمسی در الوکوئنت
@@ -461,9 +468,15 @@ public function run()
 </div>
 
 سپس بعد از میگریت سید رو انجام بدین.
+
+<div dir="ltr">
+
 ```bash
 php artisan migrate --seed
 ```
+
+</div>
+
 حالا جداول شما از شهر ها و استان ها پر شده برای استفاده از دو مدل پایین میتونین استفاده کنین.
 
 مدل استان:
@@ -477,7 +490,7 @@ php artisan migrate --seed
 <div dir="ltr">
 
 ```php
-use anjabHelpers\Models\City;
+use Baloot\Models\City;
 
 City::where('name', 'آمل')->first()
 ```
@@ -492,7 +505,7 @@ City::where('name', 'آمل')->first()
 
 ```php
 use Baloot\Models\Province;
-use anjabHelpers\Models\City;
+use Baloot\Models\City;
 
 Route::get('test/{province}/{city}', function (Province $province, City $city) {
     abort_if($city->province_id != $province->id, 404);
