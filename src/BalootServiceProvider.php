@@ -18,12 +18,12 @@ class BalootServiceProvider extends ServiceProvider
         if (config('baloot.geo')) {
             $this->loadMigrationsFrom([
                 realpath(__DIR__.'/../database/migrations/2014_10_11_000000_create_provinces_table.php'),
-                realpath(__DIR__.'/../database/migrations/2014_10_11_000001_create_cities_table.php')
+                realpath(__DIR__.'/../database/migrations/2014_10_11_000001_create_cities_table.php'),
             ]);
         }
         if (config('baloot.aparat')) {
             $this->loadMigrationsFrom([
-                realpath(__DIR__.'/../database/migrations/2014_10_11_000002_create_aparat_videos_table.php')
+                realpath(__DIR__.'/../database/migrations/2014_10_11_000002_create_aparat_videos_table.php'),
             ]);
         }
 

@@ -2,10 +2,10 @@
 
 namespace Baloot\Database;
 
-use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\Config;
 use Baloot\Models\City;
 use Baloot\Models\Province;
+use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Config;
 
 class CitiesTableSeeder extends Seeder
 {
@@ -27,7 +27,8 @@ class CitiesTableSeeder extends Seeder
                     $slug .= '-';
                 }
                 $insertedSlugs[] = $slug;
-                return ['province_id' => $tempModel->id,'name' => trim($city), 'slug' => $slug];
+
+                return ['province_id' => $tempModel->id, 'name' => trim($city), 'slug' => $slug];
             }, $province['cities']));
         }
     }
