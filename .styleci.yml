@@ -1,5 +1,1 @@
-preset: recommended
-risky: true
-finder:
-  name: "*.php"
-  not-name: "*.blade.php"
+preset: laravel
