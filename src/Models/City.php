@@ -36,6 +36,7 @@ class City extends Model
 
     /**
      * Sluggable config.
+     * @codeCoverageIgnore
      *
      * @return array
      */

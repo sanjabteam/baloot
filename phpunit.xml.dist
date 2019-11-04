@@ -27,6 +27,7 @@
         <log type="coverage-clover" target="build/logs/clover.xml"/>
     </logging>
     <php>
+        <server name="APP_KEY" value="base64:9u33KZJcTDCm1wC8XDHCKyBO99nkzjT2jOwuQ2Fsdyk="/>
         <server name="APP_ENV" value="testing"/>
         <server name="CACHE_DRIVER" value="array"/>
         <server name="MAIL_DRIVER" value="array"/>

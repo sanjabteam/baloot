@@ -23,6 +23,7 @@ class Province extends Model
 
     /**
      * Cities of province.
+     * @codeCoverageIgnore
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
@@ -33,6 +34,7 @@ class Province extends Model
 
     /**
      * Sluggable config.
+     * @codeCoverageIgnore
      *
      * @return array
      */
