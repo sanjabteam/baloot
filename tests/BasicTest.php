@@ -99,22 +99,22 @@ class BasicTest extends TestCase
         $this->assertNull($model->birth_date_fake);
 
         // aparat
-        $model->video = 'https://www.aparat.com/v/O4qSP';
-        if ($model->video_aparat instanceof \Baloot\Models\AparatVideo) {
-            $this->assertEquals('دینگ دانگ - ایستگاه جوانمرد راستگو', $model->video_aparat->title);
-            $this->assertEquals($model->video_aparat->id, $model->video_aparat->reload()->id);
-        }
+        // $model->video = 'https://www.aparat.com/v/O4qSP';
+        // if ($model->video_aparat instanceof \Baloot\Models\AparatVideo) {
+        //     $this->assertEquals('دینگ دانگ - ایستگاه جوانمرد راستگو', $model->video_aparat->title);
+        //     $this->assertEquals($model->video_aparat->id, $model->video_aparat->reload()->id);
+        // }
 
         // Test aparat array
-        $model->videos = ['https://www.aparat.com/v/O4qSP', 'https://www.aparat.com/v/6ARN8'];
-        if (is_array($model->videos_aparat) &&
-            count($model->videos_aparat) == 2 &&
-            $model->videos_aparat[0] instanceof \Baloot\Models\AparatVideo &&
-            $model->videos_aparat[1] instanceof \Baloot\Models\AparatVideo
-        ) {
-            $this->assertEquals('دینگ دانگ - ایستگاه جوانمرد راستگو', $model->videos_aparat[0]->title);
-            $this->assertEquals('اولین تریلر رسمی فیلم The Grudge -  زومجی', $model->videos_aparat[1]->title);
-        }
+        // $model->videos = ['https://www.aparat.com/v/O4qSP', 'https://www.aparat.com/v/6ARN8'];
+        // if (is_array($model->videos_aparat) &&
+        //     count($model->videos_aparat) == 2 &&
+        //     $model->videos_aparat[0] instanceof \Baloot\Models\AparatVideo &&
+        //     $model->videos_aparat[1] instanceof \Baloot\Models\AparatVideo
+        // ) {
+        //     $this->assertEquals('دینگ دانگ - ایستگاه جوانمرد راستگو', $model->videos_aparat[0]->title);
+        //     $this->assertEquals('اولین تریلر رسمی فیلم The Grudge -  زومجی', $model->videos_aparat[1]->title);
+        // }
     }
 
     public function testFakerProvider()
