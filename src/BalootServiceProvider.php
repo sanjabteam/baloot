@@ -5,8 +5,8 @@ namespace Baloot;
 use Baloot\Models\City;
 use Baloot\Models\Province;
 use Illuminate\Support\Facades\Route;
-use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\ServiceProvider;
 
 class BalootServiceProvider extends ServiceProvider
 {

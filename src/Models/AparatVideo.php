@@ -2,8 +2,8 @@
 
 namespace Baloot\Models;
 
-use Illuminate\Support\Arr;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Arr;
 
 /**
  * @property string $title              عنوان ویدیو
