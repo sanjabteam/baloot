@@ -18,7 +18,7 @@ class BalootFakerProvider extends \Faker\Provider\Base
         curl_setopt($ch, CURLOPT_HEADER, 0);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
         curl_setopt($ch, CURLOPT_BINARYTRANSFER, 1);
-        curl_setopt($ch, CURLOPT_TIMEOUT, 100);
+        curl_setopt($ch, CURLOPT_TIMEOUT, 10);
         curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
         $raw = curl_exec($ch);
         curl_close($ch);
@@ -59,6 +59,7 @@ class BalootFakerProvider extends \Faker\Provider\Base
             curl_setopt_array($curl, [
                 CURLOPT_URL => 'https://www.aparat.com/etc/api/categoryVideos/cat/7/perpage/50',
                 CURLOPT_RETURNTRANSFER => true,
+                CURLOPT_TIMEOUT => 10
             ]);
             $responseBody = curl_exec($curl);
             if (curl_getinfo($curl, CURLINFO_HTTP_CODE) == 200 && is_string($responseBody)) {

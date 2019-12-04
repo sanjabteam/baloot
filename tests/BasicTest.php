@@ -94,7 +94,7 @@ class BasicTest extends TestCase
 
         // setter
         $model->birth_date_fa = '1370/1/1';
-        $this->assertEquals($model->birth_date->format('Y-m-d'), '1991-10-21');
+        $this->assertEquals($model->birth_date->format('Y-m-d'), '1991-12-21');
 
         // non-valid data
         $model->birth_date_fake_fa = '1370/1/1/1/1';
@@ -103,7 +103,7 @@ class BasicTest extends TestCase
         // aparat
         $model->video = 'https://www.aparat.com/v/O4qSP';
         if ($model->video_aparat instanceof \Baloot\Models\AparatVideo) {
-            $this->assertEquals('ایستگاه جوانمرد راستگو', $model->video_aparat->title);
+            $this->assertEquals('دینگ دانگ - ایستگاه جوانمرد راستگو', $model->video_aparat->title);
             $this->assertEquals($model->video_aparat->id, $model->video_aparat->reload()->id);
         }
 
@@ -114,7 +114,7 @@ class BasicTest extends TestCase
             $model->videos_aparat[0] instanceof \Baloot\Models\AparatVideo &&
             $model->videos_aparat[1] instanceof \Baloot\Models\AparatVideo
         ) {
-            $this->assertEquals('ایستگاه جوانمرد راستگو', $model->videos_aparat[0]->title);
+            $this->assertEquals('دینگ دانگ - ایستگاه جوانمرد راستگو', $model->videos_aparat[0]->title);
             $this->assertEquals('اولین تریلر رسمی فیلم The Grudge -  زومجی', $model->videos_aparat[1]->title);
         }
     }
