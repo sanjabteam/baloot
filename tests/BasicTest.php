@@ -2,18 +2,16 @@
 
 namespace Baloot\Tests;
 
-use Carbon\Carbon;
 use Baloot\EloquentHelper;
 use Baloot\Models\City;
 use Baloot\Models\Province;
-use Illuminate\Http\Request;
-use Orchestra\Testbench\TestCase;
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
-use Illuminate\Foundation\Testing\DatabaseTransactions;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Artisan;
-use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Validator;
+use Orchestra\Testbench\TestCase;
 
 class BasicTest extends TestCase
 {
@@ -82,7 +80,7 @@ class BasicTest extends TestCase
 
             protected $casts = [
                 'birth_date' => 'date',
-                'birth_date_fake' => 'date'
+                'birth_date_fake' => 'date',
             ];
         };
         $model->setDateFormat('Y/j/d');
@@ -183,7 +181,7 @@ class BasicTest extends TestCase
         });
 
         $province = Province::inRandomOrder()->first();
-        $city  = City::inRandomOrder()->first();
+        $city = City::inRandomOrder()->first();
         $this->get('/province/'.$province->id)->assertStatus(200)->assertSee($province->id);
         $this->get('/province/'.$province->slug)->assertStatus(200)->assertSee($province->id);
         $this->get('/province_by_id/'.$province->id)->assertStatus(200)->assertSee($province->id);
@@ -204,7 +202,6 @@ class BasicTest extends TestCase
         $this->runDatabaseMigrations();
         $this->seed(\Baloot\Database\CitiesTableSeeder::class);
     }
-
 
     protected function getPackageProviders($app)
     {
