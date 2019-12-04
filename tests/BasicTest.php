@@ -2,16 +2,16 @@
 
 namespace Baloot\Tests;
 
-use Illuminate\Foundation\Testing\DatabaseMigrations;
-use Illuminate\Support\Facades\Validator;
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Facades\Artisan;
-use Orchestra\Testbench\TestCase;
-use Illuminate\Http\Request;
-use Baloot\Models\Province;
 use Baloot\EloquentHelper;
 use Baloot\Models\City;
+use Baloot\Models\Province;
 use Carbon\Carbon;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Foundation\Testing\DatabaseMigrations;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Artisan;
+use Illuminate\Support\Facades\Validator;
+use Orchestra\Testbench\TestCase;
 
 class BasicTest extends TestCase
 {
