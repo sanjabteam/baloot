@@ -16,13 +16,13 @@
         }
     ],
     "require": {
-        "php": "^7.1",
+        "php": "^7.2.5",
         "hekmatinasser/verta": "^1.10",
-        "illuminate/support": "^6",
-        "cviebrock/eloquent-sluggable": "^6"
+        "illuminate/support": "^6 | ^7",
+        "cviebrock/eloquent-sluggable": "^6 | ^7"
     },
     "require-dev": {
-        "orchestra/testbench": "^4.0",
+        "orchestra/testbench": "^4.0 | ^5.1",
         "phpunit/phpunit": "^8.0"
     },
     "autoload": {

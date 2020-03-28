@@ -10,7 +10,7 @@
 
 [![Latest Stable Version](https://poser.pugx.org/sanjabteam/baloot/v/stable)](https://packagist.org/packages/sanjabteam/baloot)
 [![Total Downloads](https://poser.pugx.org/sanjabteam/baloot/downloads)](https://packagist.org/packages/sanjabteam/baloot)
-[![Build Status](https://travis-ci.org/sanjabteam/baloot.svg?branch=master)](https://travis-ci.org/sanjabteam/baloot)
+[![Build Status](https://travis-ci.org/sanjabteam/baloot.svg?branch=master)](https://travis-ci.com/sanjabteam/baloot)
 [![Code Style](https://github.styleci.io/repos/214197383/shield)](https://github.styleci.io/repos/214197383)
 [![Code Style](https://codecov.io/gh/sanjabteam/baloot/branch/master/graph/badge.svg?sanitize=true)](https://codecov.io/gh/sanjabteam/baloot)
 [![License](https://poser.pugx.org/sanjabteam/baloot/license)](https://packagist.org/packages/sanjabteam/baloot)
@@ -413,7 +413,7 @@ $faker->iranMobile
 
 iranPhone:
 
-یه شماره موبایل ایرانی براتون میسازه
+یه شماره ثابت ایرانی براتون میسازه
 
 <div dir="ltr">
 
@@ -656,7 +656,7 @@ find_bank_by_card_number("6037697531")
 ## ساخته شده با کمک
 
 - [Eloquent Sluggable](https://github.com/cviebrock/eloquent-sluggable)
-- [ّIran Cities](https://github.com/ahmadazizi/iran-cities)
+- [Iran Cities](https://github.com/ahmadazizi/iran-cities)
 - [TestBench](https://github.com/orchestral/testbench)
 - [Verta](https://github.com/hekmatinasser/verta)
 

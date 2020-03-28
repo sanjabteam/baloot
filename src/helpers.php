@@ -44,13 +44,13 @@ if (! function_exists('str_to_slug')) {
      */
     function str_to_slug(string $string, string $separator = '-')
     {
-        $string = trim(mb_strtolower($string));
+        $string = fa_to_en(trim(mb_strtolower($string)));
         $string = preg_replace('!['.preg_quote($separator === '-' ? '_' : '-').']+!u', $separator, $string);
 
         return preg_replace(
             '/\\'.$separator.'{2,}/',
             $separator,
-            preg_replace('/[^A-Za-z0-9\x{0600}-\x{06FF}]/ui', $separator, $string)
+            preg_replace('/[^A-Za-z0-9\x{0620}-\x{064A}\x{0698}\x{067E}\x{0686}\x{06AF}\x{06CC}\x{06A9}]/ui', $separator, $string)
         );
     }
 }

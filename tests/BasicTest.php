@@ -92,29 +92,11 @@ class BasicTest extends TestCase
 
         // setter
         $model->birth_date_fa = '1370/1/1';
-        $this->assertEquals($model->birth_date->format('Y-m-d'), '1991-12-21');
+        $this->assertEquals($model->birth_date->format('Y'), '1991');
 
         // non-valid data
         $model->birth_date_fake_fa = '1370/1/1/1/1';
         $this->assertNull($model->birth_date_fake);
-
-        // aparat
-        // $model->video = 'https://www.aparat.com/v/O4qSP';
-        // if ($model->video_aparat instanceof \Baloot\Models\AparatVideo) {
-        //     $this->assertEquals('دینگ دانگ - ایستگاه جوانمرد راستگو', $model->video_aparat->title);
-        //     $this->assertEquals($model->video_aparat->id, $model->video_aparat->reload()->id);
-        // }
-
-        // Test aparat array
-        // $model->videos = ['https://www.aparat.com/v/O4qSP', 'https://www.aparat.com/v/6ARN8'];
-        // if (is_array($model->videos_aparat) &&
-        //     count($model->videos_aparat) == 2 &&
-        //     $model->videos_aparat[0] instanceof \Baloot\Models\AparatVideo &&
-        //     $model->videos_aparat[1] instanceof \Baloot\Models\AparatVideo
-        // ) {
-        //     $this->assertEquals('دینگ دانگ - ایستگاه جوانمرد راستگو', $model->videos_aparat[0]->title);
-        //     $this->assertEquals('اولین تریلر رسمی فیلم The Grudge -  زومجی', $model->videos_aparat[1]->title);
-        // }
     }
 
     public function testFakerProvider()
@@ -123,9 +105,6 @@ class BasicTest extends TestCase
         $this->assertIsString($faker->word);
         $this->assertIsString($faker->sentence);
         $this->assertIsString($faker->paragraph);
-        // $this->assertTrue(preg_match('/https:\/\/www.aparat.com\/v\/.+/', $faker->aparatVideo) > 0);
-        // $this->assertTrue(preg_match('/https:\/\/www.aparat.com\/v\/.+/', $faker->aparatVideos(2)[0]) > 0);
-        // $this->assertTrue(preg_match('/https:\/\/www.aparat.com\/v\/.+/', $faker->aparatVideos(2)[1]) > 0);
         $this->assertTrue(preg_match('/09\d+/', $faker->iranMobile) > 0);
         $this->assertTrue(preg_match('/0\d+/', $faker->iranPhone) > 0);
 
