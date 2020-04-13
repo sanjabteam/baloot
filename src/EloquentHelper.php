@@ -4,7 +4,6 @@ namespace Baloot;
 
 use Exception;
 use Hekmatinasser\Verta\Verta;
-use Illuminate\Support\Arr;
 
 trait EloquentHelper
 {

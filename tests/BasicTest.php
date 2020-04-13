@@ -2,18 +2,18 @@
 
 namespace Baloot\Tests;
 
-use Carbon\Carbon;
-use Baloot\Models\City;
 use Baloot\EloquentHelper;
+use Baloot\Models\City;
 use Baloot\Models\Province;
-use Illuminate\Http\Request;
+use Carbon\Carbon;
 use Hekmatinasser\Verta\Verta;
-use Orchestra\Testbench\TestCase;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Facades\Artisan;
-use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Artisan;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Validator;
+use Orchestra\Testbench\TestCase;
 
 class BasicTest extends TestCase
 {
@@ -214,7 +214,6 @@ class BasicTest extends TestCase
         $this->assertEquals('2020-03-20', $query->getBindings()[0]);
         $this->assertEquals('2021-03-20', $query->getBindings()[1]);
     }
-
 
     protected function setUp(): void
     {
