@@ -2,16 +2,18 @@
 
 namespace Baloot\Tests;
 
-use Baloot\EloquentHelper;
-use Baloot\Models\City;
-use Baloot\Models\Province;
 use Carbon\Carbon;
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Foundation\Testing\DatabaseMigrations;
+use Baloot\Models\City;
+use Baloot\EloquentHelper;
+use Baloot\Models\Province;
 use Illuminate\Http\Request;
+use Hekmatinasser\Verta\Verta;
+use Orchestra\Testbench\TestCase;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Validator;
-use Orchestra\Testbench\TestCase;
+use Illuminate\Foundation\Testing\DatabaseMigrations;
 
 class BasicTest extends TestCase
 {
@@ -173,6 +175,46 @@ class BasicTest extends TestCase
         $this->get('/city_by_slug/'.$city->slug)->assertStatus(200)->assertSee($city->id);
         $this->get('/city/random-stuff')->assertStatus(404);
     }
+
+    public function testQueryBuilders()
+    {
+        // DateTime
+        $query = DB::table('test')->whereJalali('column', '1399/01/15 14:00:00');
+        $this->assertEquals('select * from "test" where "column" = ?', $query->toSql());
+        $this->assertEquals(1, count($query->getBindings()));
+        $this->assertEquals(Verta::parse('1399/01/15 14:00:00')->DateTime(), $query->getBindings()[0]);
+
+        $query = DB::table('test')->whereJalali('column', '!=', '1399/01/15 14:00:00');
+        $this->assertEquals('select * from "test" where "column" != ?', $query->toSql());
+        $this->assertEquals(1, count($query->getBindings()));
+        $this->assertEquals(Verta::parse('1399/01/15 14:00:00')->DateTime(), $query->getBindings()[0]);
+
+        // Date
+        $query = DB::table('test')->whereDateJalali('column', '1399/01/15');
+        $this->assertEquals('select * from "test" where strftime(\'%Y-%m-%d\', "column") = cast(? as text)', $query->toSql());
+        $this->assertEquals(1, count($query->getBindings()));
+        $this->assertEquals('2020-04-03', $query->getBindings()[0]);
+
+        $query = DB::table('test')->whereDateJalali('column', '!=', '1399/01/15');
+        $this->assertEquals('select * from "test" where strftime(\'%Y-%m-%d\', "column") != cast(? as text)', $query->toSql());
+        $this->assertEquals(1, count($query->getBindings()));
+        $this->assertEquals('2020-04-03', $query->getBindings()[0]);
+
+        // Month
+        $query = DB::table('test')->whereInMonthJalali('column', 1, 1399);
+        $this->assertEquals('select * from "test" where (strftime(\'%Y-%m-%d\', "column") >= cast(? as text) and strftime(\'%Y-%m-%d\', "column") < cast(? as text))', $query->toSql());
+        $this->assertEquals(2, count($query->getBindings()));
+        $this->assertEquals('2020-03-20', $query->getBindings()[0]);
+        $this->assertEquals('2020-04-20', $query->getBindings()[1]);
+
+        // Year
+        $query = DB::table('test')->whereInYearJalali('column', 1399);
+        $this->assertEquals('select * from "test" where (strftime(\'%Y-%m-%d\', "column") >= cast(? as text) and strftime(\'%Y-%m-%d\', "column") < cast(? as text))', $query->toSql());
+        $this->assertEquals(2, count($query->getBindings()));
+        $this->assertEquals('2020-03-20', $query->getBindings()[0]);
+        $this->assertEquals('2021-03-20', $query->getBindings()[1]);
+    }
+
 
     protected function setUp(): void
     {

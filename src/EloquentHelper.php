@@ -20,15 +20,8 @@ trait EloquentHelper
                 } elseif ($matches[2] == '_ftt') {
                     return $attributeValue->formatJalaliDatetime();
                 }
-            }
-        }
 
-        if ($key && preg_match('/^([A-Za-z0-9_]+)_aparat$/', $key, $matches)) {
-            $attributeValue = $this->getAttribute($matches[1]);
-            if (is_string($attributeValue) && $info = Arr::first(aparat_info([$attributeValue]))) {
-                return $info;
-            } elseif (is_array($attributeValue) && count($info = aparat_info($attributeValue)) > 0) {
-                return $info;
+                return $attributeValue;
             }
         }
 

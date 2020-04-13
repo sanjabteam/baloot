@@ -10,7 +10,7 @@
 
 [![Latest Stable Version](https://poser.pugx.org/sanjabteam/baloot/v/stable)](https://packagist.org/packages/sanjabteam/baloot)
 [![Total Downloads](https://poser.pugx.org/sanjabteam/baloot/downloads)](https://packagist.org/packages/sanjabteam/baloot)
-[![Build Status](https://travis-ci.org/sanjabteam/baloot.svg?branch=master)](https://travis-ci.com/sanjabteam/baloot)
+[![Build Status](https://travis-ci.com/sanjabteam/baloot.svg?branch=master)](https://travis-ci.com/sanjabteam/baloot)
 [![Code Style](https://github.styleci.io/repos/214197383/shield)](https://github.styleci.io/repos/214197383)
 [![Code Style](https://codecov.io/gh/sanjabteam/baloot/branch/master/graph/badge.svg?sanitize=true)](https://codecov.io/gh/sanjabteam/baloot)
 [![License](https://poser.pugx.org/sanjabteam/baloot/license)](https://packagist.org/packages/sanjabteam/baloot)
@@ -31,10 +31,9 @@ forkو pull request
 
 امکانات:
 * ذخیره و بازیابی تاریخ شمسی در الوکوئنت
-* دسترسی به ای پی آی سایت آپارات مستقیما از مدل
+* شرط گذاری روی کوئری با تاریخ شمسی
 * میدلویر برای تعمیر حروف ک و ی عربی و اعداد فارسی و عربی
 * تابع تهیه اسلاگ فارسی
-* امکانات اضافه شده به فیکر از جمله لینک ویدیو آپارات
 * ولیدیتور شماره همراه و شماره تماس ثابت
 * دیتابیس شهر ها و استان های ایران به همراه روت بایندینگ ها
 * پیدا کردن بانک از روی شماره کارت
@@ -43,8 +42,11 @@ forkو pull request
 - [کانفیگ](#%da%a9%d8%a7%d9%86%d9%81%db%8c%da%af)
 - [ذخیره و بازیابی تاریخ شمسی](#%d8%b0%d8%ae%db%8c%d8%b1%d9%87-%d9%88-%d8%a8%d8%a7%d8%b2%db%8c%d8%a7%d8%a8%db%8c-%d8%aa%d8%a7%d8%b1%db%8c%d8%ae-%d8%b4%d9%85%d8%b3%db%8c)
   - [استفاده از اتریبیوت های دلخواه](#%d8%a7%d8%b3%d8%aa%d9%81%d8%a7%d8%af%d9%87-%d8%a7%d8%b2-%d8%a7%d8%aa%d8%b1%db%8c%d8%a8%db%8c%d9%88%d8%aa-%d9%87%d8%a7%db%8c-%d8%af%d9%84%d8%ae%d9%88%d8%a7%d9%87)
-- [مشخصات ویدیو آپارات](#%d9%85%d8%b4%d8%ae%d8%b5%d8%a7%d8%aa-%d9%88%db%8c%d8%af%db%8c%d9%88-%d8%a2%d9%be%d8%a7%d8%b1%d8%a7%d8%aa)
-  - [نکته بسیار مهم](#%d9%86%da%a9%d8%aa%d9%87-%d8%a8%d8%b3%db%8c%d8%a7%d8%b1-%d9%85%d9%87%d9%85)
+- [کوئری بیلدر تاریخ شمسی](#%da%a9%d9%88%d8%a6%d8%b1%db%8c-%d8%a8%db%8c%d9%84%d8%af%d8%b1-%d8%aa%d8%a7%d8%b1%db%8c%d8%ae-%d8%b4%d9%85%d8%b3%db%8c)
+  - [whereJalali](#wherejalali)
+  - [whereDateJalali](#wheredatejalali)
+  - [whereInMonthJalali](#whereinmonthjalali)
+  - [whereInYearJalali](#whereinyearjalali)
 - [میدلویر](#%d9%85%db%8c%d8%af%d9%84%d9%88%db%8c%d8%b1)
 - [ولیدیشن](#%d9%88%d9%84%db%8c%d8%af%db%8c%d8%b4%d9%86)
 - [فیکر](#%d9%81%db%8c%da%a9%d8%b1)
@@ -90,13 +92,6 @@ config/baloot.php
 
 `geo`:
 اگه نمیخاین از قابلیت استان و شهر استفاده کنین مقدار این قسمت رو برابر
-
-`false`
-
-قرار بدید تا جداولش ایجاد نشه.
-
-`aparat`:
-اگه نمیخاین از قابلیت آپارات استفاده کنین مقدار این قسمت رو برابر
 
 `false`
 
@@ -206,85 +201,64 @@ $user->birth_date_fa; // Hekmatinasser\Verta\Verta
 
 </div>
 
-## مشخصات ویدیو آپارات
-این پکیج این امکان رو به شما میده تا به راحتی مشخصات یه فیلم رو از [ای پی آی آپارات](https://aparat.com/api) از طریق آدرس فیلم دریافت کنین.
-برای شروع
+## کوئری بیلدر تاریخ شمسی
 
-trait
+این دستورات کمک میکنن بر روی ستون های از نوع
+date/datetime
+شرط با تاریخ شمسی بذارین.
 
-<div dir="ltr">
-
-`Baloot\EloquentHelper`
-
-</div>
-
-رو به مدلی که میخاین اضافه کنین.
-
+### whereJalali
+شرط با یک تاریخ و زمان به خصوص شمسی
 
 <div dir="ltr">
 
 ```php
-use Baloot\EloquentHelper;
-
-class Post extends Model
-{
-    use EloquentHelper; // trait
-}
+User::whereJalali('created_at', '1399/01/15 14:00:00')->get();
+// یا
+User::whereJalali('created_at', Verta::createJalali(1399,01,15, 14, 0, 0))->get();
+// شرط با عملگر
+User::whereJalali('created_at', '>', '1399/01/15 14:00:00')->get();
 ```
 
 </div>
 
-بعد فقط کافیه که آدرس فیلم رو درون یه فیلد ذخیره کنین. بعد با پسوند
-
-<div dir="ltr">
-
-`_aparat`
-
-</div>
-
-به مشخصاتش دسترسی پیدا کنین.
+### whereDateJalali
+شرط با یک تاریخ به خصوص شمسی
 
 <div dir="ltr">
 
 ```php
-$post = Post::first();
-$post->video = "https://www.aparat.com/v/O4qSP";
-dd($post->video_aparat); // Baloot\Models\AparatVideo
-dd($post->video_aparat->title); // ایستگاه جوانمرد راستگو
-dd($post->video_aparat->username); // ding.dong
-dd($post->video_aparat->sender_name); //دینگ دانگ
+User::whereDateJalali('created_at', '1399/01/15')->get();
+// یا
+User::whereDateJalali('created_at', Verta::createJalaliDate(1399,01,15))->get();
+// شرط با عملگر
+User::whereDateJalali('created_at', '>', '1399/01/15')->get();
 ```
 
 </div>
 
-اگه میخاین مستقیم و بدون مدل به مشخصات دسترسی داشته باشین از این تابع استفاده کنین.
-
+### whereInMonthJalali
+شرط یک ماه خاص شمسی در یک سال
 
 <div dir="ltr">
 
 ```php
-aparat_info(["https://www.aparat.com/v/O4qSP"]);
+User::whereInMonthJalali('created_at', 3)->get(); // فقط کاربران ایجاد شده در خرداد ماه سال جاری
+
+User::whereInMonthJalali('created_at', 3, 1397)->get(); // فقط کاربران ایجاد شده در خرداد ماه سال 1397
 ```
 
 </div>
 
-مشخصات کامل: [AparatVideo](./src/Models/AparatVideo.php)
-
-
-### نکته بسیار مهم
-آپارات اگه طی یه زمان از حدی بیشتر بهش درخواست بفرسین یه ارور
-
-429 Too Many Requests
-
-بهتون تحویل میده و حسابی دردسر درست میکنه براتون برای همین من مشخصات فیلم ها داخل دیتابیس ذخیره میکنم بنابراین مشخصات فیلم تا زمانی که خودتون نخواید تغییری نمیکنه. یه سری چیز ها مثل تعداد بازدید و تعداد لایک خیلی سریع تغییر میکنن اما به نظرم ارزش اینو ندارن که عاقبتتون 429 بشه.
-برای بروز کردن مشخصات فیلم کافیه که از این روش استفاده کنین.
+### whereInYearJalali
+شرط یک سال خاص شمسی
 
 <div dir="ltr">
 
 ```php
-$post->video_aparat->visit_cnt; // 26550
-$post->video_aparat->reload();
-$post->video_aparat->visit_cnt; // 26812
+User::whereInYearJalali('created_at')->get(); // فقط کاربران ایجاد شده در سال جاری
+
+User::whereInYearJalali('created_at', 1397)->get(); //فقط کاربران ایجاد شده در سال 1397
 ```
 
 </div>
@@ -422,32 +396,6 @@ $faker->iranPhone
 ```
 
 </div>
-
-aparatVideo:
-
-آدرس یه فیلم در آپارات به فراهم میکنه.
-
-
-<div dir="ltr">
-
-```php
-$faker->aparatVideo
-```
-
-</div>
-
-اگه آرایه ای از فیلم ها میخاید.
-
-
-<div dir="ltr">
-
-```php
-$faker->aparatVideos($faker->numberBetween(1, 3))
-```
-
-</div>
-
-پارامتر تعداد فیلم هایی که لازم دارین رو ازتون دریافت میکنه.
 
 ## استان ها و شهرها
 برای شروع در
