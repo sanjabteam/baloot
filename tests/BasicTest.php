@@ -88,6 +88,7 @@ class BasicTest extends TestCase
         $model->setDateFormat('Y/j/d');
         // getter
         $model->birth_date = Carbon::createFromDate(2001, 12, 11);
+        $this->assertEquals(verta($model->birth_date), $model->birth_date_fa);
         $this->assertEquals(verta($model->birth_date)->formatJalaliDate(), $model->birth_date_fa_f);
         $this->assertEquals(verta($model->birth_date)->format('Y/n/j H:i'), $model->birth_date_fa_ft);
         $this->assertEquals(verta($model->birth_date)->formatJalaliDateTime(), $model->birth_date_fa_ftt);

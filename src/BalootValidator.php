@@ -41,7 +41,7 @@ class BalootValidator extends Validator
      */
     public function validateIranMobile($attribute, $value, $parameters, $validator)
     {
-        return preg_match("/^09[0-3]\d{8}$/", $value);
+        return preg_match("/^09([0-3]|9)\d{8}$/", $value);
     }
 
     /**
