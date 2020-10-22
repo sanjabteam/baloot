@@ -268,32 +268,9 @@ User::whereInYearJalali('created_at', 1397)->get(); //فقط کاربران ای
 مشکل دوم اینه که مثلا ادمین یه چیزی با ک و ی فارسی وارد میکنه اما یه کاربری تو سایت کیبوردش عربی و با ك,ي عربی سرچ میکنه و این وسط موقع سرچ چیزی پیدا نمیکنه در صورتی که اینطور نیستش.
 برای حل این مشکل کافیه در فایل
 
-`app/Http/Kernel.php`
+`config/baloot.php`
 
-کلاس
-
-<div dir="ltr">
-
-```php
-\Baloot\Middleware\FixRequestInputs
-```
-
-</div>
-
-به آرایه
-
-middleware
-
-اضافه کنین
-
-<div dir="ltr">
-
-```php
-protected $middleware = [
-    ...
-    \Baloot\Middleware\FixRequestInputs::class,
-];
-```
+ مقدار `fix_inputs` رو برابر `true` قرار بدید
 
 </div>
 

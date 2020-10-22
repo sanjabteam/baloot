@@ -2,9 +2,11 @@
 
 namespace Baloot;
 
+use Baloot\Middleware\FixRequestInputs;
 use Baloot\Models\City;
 use Baloot\Models\Province;
 use Hekmatinasser\Verta\Verta;
+use Illuminate\Contracts\Http\Kernel;
 use Illuminate\Database\Query\Builder;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Validator;
@@ -17,13 +19,6 @@ class BalootServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        if (config('baloot.geo')) {
-            $this->loadMigrationsFrom([
-                realpath(__DIR__.'/../database/migrations/2014_10_11_000000_create_provinces_table.php'),
-                realpath(__DIR__.'/../database/migrations/2014_10_11_000001_create_cities_table.php'),
-            ]);
-        }
-
         $this->publishes([
             __DIR__.'/../config/config.php' => config_path('baloot.php'),
         ], 'config');
@@ -33,17 +28,17 @@ class BalootServiceProvider extends ServiceProvider
         });
 
         if (config('baloot.geo')) {
-            foreach (['city' => City::class, 'province' => Province::class] as $key => $model) {
-                Route::bind($key, function ($value) use ($model) {
-                    return $model::where('slug', $value)->orWhere('id', $value)->firstOrFail();
-                });
-                Route::bind($key.'_by_slug', function ($value) use ($model) {
-                    return $model::where('slug', $value)->firstOrFail();
-                });
-                Route::bind($key.'_by_id', function ($value) use ($model) {
-                    return $model::where('id', $value)->firstOrFail();
-                });
-            }
+
+            $this->loadMigrationsFrom([
+                realpath(__DIR__.'/../database/migrations/2014_10_11_000000_create_provinces_table.php'),
+                realpath(__DIR__.'/../database/migrations/2014_10_11_000001_create_cities_table.php'),
+            ]);
+
+            $this->bindCityRoutes();
+        }
+
+        if(config('baloot.fix_inputs')){
+            $this->pushMiddleware();
         }
 
         $this->registerQueryBuilderMacros();
@@ -114,5 +109,26 @@ class BalootServiceProvider extends ServiceProvider
 
             return $this;
         });
+    }
+
+    private function bindCityRoutes(): void
+    {
+        foreach (['city' => City::class, 'province' => Province::class] as $key => $model) {
+            Route::bind($key, function ($value) use ($model) {
+                return $model::where('slug', $value)->orWhere('id', $value)->firstOrFail();
+            });
+            Route::bind($key . '_by_slug', function ($value) use ($model) {
+                return $model::where('slug', $value)->firstOrFail();
+            });
+            Route::bind($key . '_by_id', function ($value) use ($model) {
+                return $model::where('id', $value)->firstOrFail();
+            });
+        }
+    }
+
+    private function pushMiddleware(): void
+    {
+        $kernel = $this->app->make(Kernel::class);
+        $kernel->pushMiddleware(FixRequestInputs::class);
     }
 }
