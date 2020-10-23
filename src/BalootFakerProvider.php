@@ -14,11 +14,13 @@ class BalootFakerProvider extends \Faker\Provider\Base
             File::makeDirectory($path, 755, true);
         }
         $ch = curl_init("https://picsum.photos/{$width}/{$height}");
-        curl_setopt($ch, CURLOPT_HEADER, 0);
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-        curl_setopt($ch, CURLOPT_BINARYTRANSFER, 1);
-        curl_setopt($ch, CURLOPT_TIMEOUT, 10);
-        curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
+        curl_setopt_array($ch, [
+            CURLOPT_HEADER => 0,
+            CURLOPT_RETURNTRANSFER => 1,
+            CURLOPT_BINARYTRANSFER => 1,
+            CURLOPT_TIMEOUT => 10,
+            CURLOPT_FOLLOWLOCATION => 1,
+        ]);
         $raw = curl_exec($ch);
         curl_close($ch);
 
