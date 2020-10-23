@@ -17,7 +17,6 @@ class BalootServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-
         $this->publishes([
             __DIR__.'/../config/config.php' => config_path('baloot.php'),
         ], 'config');
@@ -111,10 +110,10 @@ class BalootServiceProvider extends ServiceProvider
             Route::bind($key, function ($value) use ($model) {
                 return $model::where('slug', $value)->orWhere('id', $value)->firstOrFail();
             });
-            Route::bind($key . '_by_slug', function ($value) use ($model) {
+            Route::bind($key.'_by_slug', function ($value) use ($model) {
                 return $model::where('slug', $value)->firstOrFail();
             });
-            Route::bind($key . '_by_id', function ($value) use ($model) {
+            Route::bind($key.'_by_id', function ($value) use ($model) {
                 return $model::where('id', $value)->firstOrFail();
             });
         }
