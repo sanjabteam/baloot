@@ -1,12 +1,9 @@
 <h1 align="center">بلوط</h1>
-
-![Baloot](./images/banner.jpg)
-
-<div dir="rtl">
+<h2 align="center">پکیج کمکی لاراول برای ایرانیان</h2>
 
 ---
 
-<p align="center">
+<div align="center">
 
 [![Latest Stable Version](https://poser.pugx.org/sanjabteam/baloot/v/stable)](https://packagist.org/packages/sanjabteam/baloot)
 [![Total Downloads](https://poser.pugx.org/sanjabteam/baloot/downloads)](https://packagist.org/packages/sanjabteam/baloot)
@@ -15,9 +12,11 @@
 [![Code Style](https://codecov.io/gh/sanjabteam/baloot/branch/master/graph/badge.svg?sanitize=true)](https://codecov.io/gh/sanjabteam/baloot)
 [![License](https://poser.pugx.org/sanjabteam/baloot/license)](https://packagist.org/packages/sanjabteam/baloot)
 
-</p>
+</div>
 
 ---
+
+<div dir="rtl">
 
 > پکیج لاراول مخصوص توسعه دهندگان ایرانی
 
