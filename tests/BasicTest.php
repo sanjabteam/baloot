@@ -127,6 +127,11 @@ class BasicTest extends TestCase
     public function testValidationRules()
     {
         $this->assertTrue(Validator::make(['mobile' => '09371234567'], ['mobile' => 'iran_mobile'])->passes());
+        $this->assertTrue(Validator::make(['mobile' => '09371234567'], ['mobile' => 'iran_mobile:true'])->passes());
+        $this->assertTrue(Validator::make(['mobile' => '09371234567'], ['mobile' => 'iran_mobile:false'])->passes());
+        $this->assertTrue(Validator::make(['mobile' => '9371234567'], ['mobile' => 'iran_mobile:true'])->passes());
+        $this->assertFalse(Validator::make(['mobile' => '9371234567'], ['mobile' => 'iran_mobile:false'])->passes());
+        $this->assertFalse(Validator::make(['mobile' => '9371234567'], ['mobile' => 'iran_mobile'])->passes());
         $this->assertFalse(Validator::make(['mobile' => '09371234'], ['mobile' => 'iran_mobile'])->passes());
         $this->assertFalse(Validator::make(['mobile' => '09371234567aaa'], ['mobile' => 'iran_mobile'])->passes());
         $this->assertFalse(Validator::make(['mobile' => 'aaa09371234567'], ['mobile' => 'iran_mobile'])->passes());
