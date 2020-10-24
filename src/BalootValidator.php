@@ -38,19 +38,25 @@ class BalootValidator extends Validator
      * @param string                           $value
      * @param array                            $parameters
      * @param \Illuminate\Validation\Validator $validator
+     * @return bool
      */
     public function validateIranMobile($attribute, $value, $parameters, $validator)
     {
-        return preg_match("/^09([0-3]|9)\d{8}$/", $value);
+        if(isset($parameters[0]) and $parameters[0] == "true") {
+            return preg_match("/^0?9[0-1-2-3-9]\d{8}$/", $value);
+        }
+        return preg_match("/^09[0-1-2-3-9]\d{8}$/", $value);
+
     }
 
     /**
      * Validate iran phone.
      *
-     * @param string                           $attribute
-     * @param string                           $value
-     * @param array                            $parameters
+     * @param string $attribute
+     * @param string $value
+     * @param array $parameters
      * @param \Illuminate\Validation\Validator $validator
+     * @return bool
      */
     public function validateIranPhone($attribute, $value, $parameters, $validator)
     {
