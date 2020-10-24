@@ -306,9 +306,9 @@ iran_phone:
 iran_mobile:
 برای ولیدیشن شماره موبایل های ایرانی
 
-در صورتی که میخواید شماره هایی که بدون صفر هم وارد میشن رو بپذیرهبه این صورت وارد کنید :
+> در صورتی که میخواید شماره هایی که بدون صفر هم وارد میشن رو بپذیره, به این صورت وارد کنید :
 iran_mobile:true
-در غیر این صورت اگر صفر وارد نشه در اول شماره به ارور میخوره.
+در غیر این صورت اگر صفر وارد نشه شماره تایید نمیشه.
 
 برای استفاده:
 
@@ -318,13 +318,9 @@ iran_mobile:true
 public function test(Request $request)
 {
     $request->validate([
-        'test1' => 'required|iran_mobile', // وارد شدن 0 الزامی هست
-        'test2' => 'required|iran_phone',
-    ]);
-    
-    $request->validate([
-        'test1' => 'required|iran_mobile:true', // وارد شدن 0 اختیاری هست
-        'test2' => 'required|iran_phone',
+        'mobile1' => 'required|iran_mobile',
+        'phone' => 'required|iran_phone',
+        'mobile2' => 'required|iran_mobile:true', // وارد کردن صفر در اول شماره اختیاری
     ]);
 }
 ```
