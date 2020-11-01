@@ -59,7 +59,7 @@ class BalootValidator extends Validator
     }
 
     /**
-     * Validate iran phone.
+     * Validate iran national code.
      *
      * @param string                           $attribute
      * @param string                           $value
