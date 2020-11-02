@@ -122,6 +122,9 @@ class BasicTest extends TestCase
         $this->assertIsString($newFilesPath[1]);
         $this->assertTrue(file_exists(public_path($newFilesPath[0])));
         $this->assertTrue(file_exists(public_path($newFilesPath[1])));
+
+        $this->assertTrue(Validator::make(['national_code' => '0040300005'], ['national_code' => 'iran_national_code'])->passes());
+        $this->assertFalse(Validator::make(['national_code' => '9040300005'], ['national_code' => 'iran_national_code'])->passes());
     }
 
     public function testValidationRules()
