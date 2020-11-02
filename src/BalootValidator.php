@@ -86,7 +86,7 @@ class BalootValidator extends Validator
         for ($i = 0; $i < 9; $i++) {
             $sum += ((10 - $i) * intval(substr($value, $i, 1)));
         }
-        $ret = $sum%11;
+        $ret = $sum % 11;
         $parity = intval(substr($value, 9, 1));
         if (($ret < 2 && $ret == $parity) || ($ret >= 2 && $ret == 11 - $parity)) {
             return true;
