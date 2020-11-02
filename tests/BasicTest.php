@@ -122,9 +122,6 @@ class BasicTest extends TestCase
         $this->assertIsString($newFilesPath[1]);
         $this->assertTrue(file_exists(public_path($newFilesPath[0])));
         $this->assertTrue(file_exists(public_path($newFilesPath[1])));
-
-        $this->assertTrue(Validator::make(['national_code' => '0040300005'], ['national_code' => 'iran_national_code'])->passes());
-        $this->assertFalse(Validator::make(['national_code' => '9040300005'], ['national_code' => 'iran_national_code'])->passes());
     }
 
     public function testValidationRules()
@@ -145,6 +142,13 @@ class BasicTest extends TestCase
         $this->assertFalse(Validator::make(['phone' => '01112345678aaa'], ['phone' => 'iran_phone'])->passes());
         $this->assertFalse(Validator::make(['phone' => 'aaa01112345678'], ['phone' => 'iran_phone'])->passes());
         $this->assertFalse(Validator::make(['phone' => '0111234567891'], ['phone' => 'iran_phone'])->passes());
+
+        $this->assertTrue(Validator::make(['national_code' => '0040300005'], ['national_code' => 'iran_national_code'])->passes());
+        $this->assertFalse(Validator::make(['national_code' => '9040300005'], ['national_code' => 'iran_national_code'])->passes());
+        $this->assertFalse(Validator::make(['national_code' => '-testtest-'], ['national_code' => 'iran_national_code'])->passes());
+        for ($i = 0; $i < 10; $i++) {
+            $this->assertFalse(Validator::make(['national_code' => str_repeat(0, 10)], ['national_code' => 'iran_national_code'])->passes());
+        }
     }
 
     public function testRouteBindings()

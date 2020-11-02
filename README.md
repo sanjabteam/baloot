@@ -329,6 +329,9 @@ public function test(Request $request)
 
 > این قسمت نیاز به بهبود دارد
 
+iran_national_code:
+ولیدیشن کد ملی
+
 ## فیکر
 برای فیکر یه سری بهبود ها انجام شده برای مثال
 paragraph
