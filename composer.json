@@ -18,12 +18,12 @@
     "require": {
         "php": "^7.2.5",
         "hekmatinasser/verta": "^1.10",
-        "illuminate/support": "^6 | ^7",
-        "cviebrock/eloquent-sluggable": "^6 | ^7"
+        "illuminate/support": "^7 | ^8",
+        "cviebrock/eloquent-sluggable": "^7 | ^8"
     },
     "require-dev": {
-        "orchestra/testbench": "^4.0 | ^5.1",
-        "phpunit/phpunit": "^8.0"
+        "orchestra/testbench": "^5.1 | ^6",
+        "phpunit/phpunit": "^9.0"
     },
     "autoload": {
         "psr-4": {
