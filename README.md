@@ -7,8 +7,8 @@
 
 [![Latest Stable Version](https://poser.pugx.org/sanjabteam/baloot/v/stable)](https://packagist.org/packages/sanjabteam/baloot)
 [![Total Downloads](https://poser.pugx.org/sanjabteam/baloot/downloads)](https://packagist.org/packages/sanjabteam/baloot)
-[![Build Status](https://travis-ci.com/sanjabteam/baloot.svg?branch=master)](https://travis-ci.com/sanjabteam/baloot)
-[![Code Style](https://github.styleci.io/repos/214197383/shield)](https://github.styleci.io/repos/214197383)
+[![Build Status](https://github.com/sanjabteam/baloot/workflows/tests/badge.svg)](https://github.com/sanjabteam/baloot/actions)
+[![Code Style](https://github.styleci.io/repos/214197383/shield?style=flat)](https://github.styleci.io/repos/214197383)
 [![Code Style](https://codecov.io/gh/sanjabteam/baloot/branch/master/graph/badge.svg?sanitize=true)](https://codecov.io/gh/sanjabteam/baloot)
 [![License](https://poser.pugx.org/sanjabteam/baloot/license)](https://packagist.org/packages/sanjabteam/baloot)
 
