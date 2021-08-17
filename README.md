@@ -271,6 +271,9 @@ User::whereInYearJalali('created_at', 1397)->get(); //فقط کاربران ای
 User::whereBetweenJalali('created_at', ['1400/03/26 12:00:00', '1400/05/26 12:00:00'])->get(); // فقط کاربران ایجاد شده بین دو تاریخ مشخص شده
 // یا
 User::whereBetweenJalali('created_at', [Verta::createJalali(1400,01,15, 14, 0, 0), Verta::createJalali(1399,01,15, 14, 0, 0)])->get(); 
+// شرط با Not
+User::whereNotBetweenJalali('created_at', ['1400/03/26 12:00:00', '1400/05/26 12:00:00'])->get(); // همه کاربران به جز کاربران ایجاد شده در تاریخ مشخص
+
 ```
 
 </div>
