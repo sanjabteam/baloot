@@ -77,7 +77,8 @@ class BasicTest extends TestCase
     public function testEloquentHelper()
     {
         Artisan::call('migrate');
-        $model = new class extends Model {
+        $model = new class extends Model
+        {
             use EloquentHelper;
 
             protected $casts = [
