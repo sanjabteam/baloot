@@ -98,9 +98,8 @@ class BasicTest extends TestCase
         $this->assertEquals($model->birth_date->format('Y'), '1991');
 
         // non-valid data
-        // TODO: Wait for verta fixes and then uncomment following lines
-        // $model->birth_date_fake_fa = '1370/1/1/1/1';
-        // $this->assertNull($model->birth_date_fake);
+        $model->birth_date_fake_fa = '1370/1/1/1/1';
+        $this->assertNull($model->birth_date_fake);
     }
 
     public function testFakerProvider()
@@ -227,6 +226,13 @@ class BasicTest extends TestCase
         $this->assertEquals(2, count($query->getBindings()));
         $this->assertEquals('2020-03-20', $query->getBindings()[0]);
         $this->assertEquals('2021-03-21', $query->getBindings()[1]);
+
+        // Between
+        $query = DB::table('test')->whereBetweenJalali('column', ['1398/01/15', '1399/01/15']);
+        $this->assertEquals('select * from "test" where "column" between ? and ?', $query->toSql());
+        $this->assertEquals(2, count($query->getBindings()));
+        $this->assertEquals(Verta::parse('1398/01/15')->DateTime(), $query->getBindings()[0]);
+        $this->assertEquals(Verta::parse('1399/01/15')->DateTime(), $query->getBindings()[1]);
     }
 
     protected function setUp(): void
