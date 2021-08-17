@@ -102,6 +102,27 @@ class BalootServiceProvider extends ServiceProvider
 
             return $this;
         });
+
+        Builder::macro('whereBetweenJalali', function (string $column, array $values, $boolean = 'and', $not = false) {
+            /**
+             * @var Builder $this
+             */
+            foreach ($values as $index => $value) {
+                if (! $value instanceof Verta) {
+                    $value = Verta::parse($value);
+                }
+                $values[$index] = $value->DateTime();
+            }
+            $this->whereBetween($column, $values, $boolean, $not);
+
+            return $this;
+        });
+
+        Builder::macro('whereNotBetweenJalali', function (string $column, array $values, $boolean = 'and', $not = false) {
+            $this->whereBetweenJalali($column, $values, $boolean, true);
+
+            return $this;
+        });
     }
 
     private function bindCityRoutes()
