@@ -6,9 +6,9 @@ use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * @property string $name           name of provice
- * @property string $description    description about province
- * @property int $province_id       province id of city
+ * @property string $name name of provice
+ * @property string $description description about province
+ * @property int $province_id province id of city
  * @property-read string $slug      unique slug based on name
  */
 class City extends Model
@@ -36,6 +36,7 @@ class City extends Model
 
     /**
      * Sluggable config.
+     *
      * @codeCoverageIgnore
      *
      * @return array

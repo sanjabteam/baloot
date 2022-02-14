@@ -6,7 +6,7 @@ if (! function_exists('en_to_fa')) {
     /**
      * Convert english digits to farsi.
      *
-     * @param string $text
+     * @param  string  $text
      * @return string
      */
     function en_to_fa($text)
@@ -22,7 +22,7 @@ if (! function_exists('fa_to_en')) {
     /**
      * Convert farsi/arabic digits to english.
      *
-     * @param string $text
+     * @param  string  $text
      * @return string
      */
     function fa_to_en($text)
@@ -38,8 +38,8 @@ if (! function_exists('str_to_slug')) {
     /**
      * Returns slug for string.
      *
-     * @param string $string
-     * @param string $separator
+     * @param  string  $string
+     * @param  string  $separator
      * @return string
      */
     function str_to_slug(string $string, string $separator = '-')
@@ -60,7 +60,7 @@ if (! function_exists('find_bank_by_card_number')) {
     /**
      * Find bank info from card number.
      *
-     * @param string $card
+     * @param  string  $card
      * @return array
      */
     function find_bank_by_card_number($card)

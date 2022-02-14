@@ -35,10 +35,10 @@ class BalootValidator extends Validator
     /**
      * Validate iran mobile.
      *
-     * @param string                           $attribute
-     * @param string                           $value
-     * @param array                            $parameters
-     * @param \Illuminate\Validation\Validator $validator
+     * @param  string  $attribute
+     * @param  string  $value
+     * @param  array  $parameters
+     * @param  \Illuminate\Validation\Validator  $validator
      * @return bool
      */
     public function validateIranMobile($attribute, $value, $parameters, $validator)
@@ -53,10 +53,10 @@ class BalootValidator extends Validator
     /**
      * Validate iran phone.
      *
-     * @param string $attribute
-     * @param string $value
-     * @param array $parameters
-     * @param \Illuminate\Validation\Validator $validator
+     * @param  string  $attribute
+     * @param  string  $value
+     * @param  array  $parameters
+     * @param  \Illuminate\Validation\Validator  $validator
      * @return bool
      */
     public function validateIranPhone($attribute, $value, $parameters, $validator)
@@ -67,10 +67,10 @@ class BalootValidator extends Validator
     /**
      * Validate iran national code.
      *
-     * @param string                           $attribute
-     * @param string                           $value
-     * @param array                            $parameters
-     * @param \Illuminate\Validation\Validator $validator
+     * @param  string  $attribute
+     * @param  string  $value
+     * @param  array  $parameters
+     * @param  \Illuminate\Validation\Validator  $validator
      */
     public function validateIranNationalCode($attribute, $value, $parameters, $validator)
     {
