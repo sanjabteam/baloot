@@ -27,7 +27,7 @@ class FixRequestInputs
     /**
      * Convert arabic (ك), (ي) to persian (ک),(ی).
      *
-     * @param array $inputs
+     * @param  array  $inputs
      * @return array
      */
     protected function removeArabicCharacters(array $inputs)
@@ -50,7 +50,7 @@ class FixRequestInputs
     /**
      * Convert Persian numbers to english numbers.
      *
-     * @param array $inputs
+     * @param  array  $inputs
      * @return array
      */
     protected function removePersianNumbers(array $inputs)
