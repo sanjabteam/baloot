@@ -43,7 +43,10 @@ class BalootServiceProvider extends ServiceProvider
     public function register()
     {
         $this->mergeConfigFrom(__DIR__.'/../config/config.php', 'baloot');
-        app(\Faker\Generator::class)->addProvider(new BalootFakerProvider(app(\Faker\Generator::class)));
+
+        if (config('baloot.faker')) {
+            app(\Faker\Generator::class)->addProvider(new BalootFakerProvider(app(\Faker\Generator::class)));
+        }
     }
 
     /**
