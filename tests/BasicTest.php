@@ -74,6 +74,12 @@ class BasicTest extends TestCase
         $this->assertEquals(null, find_bank_by_card_number('12345678'));
     }
 
+    public function testFindBankByShabaNumber()
+    {
+        $this->assertEquals('sb', find_bank_by_shaba('480560611828005302000000')['class']);
+        $this->assertEquals(null, find_bank_by_shaba('12345678'));
+    }
+
     public function testEloquentHelper()
     {
         Artisan::call('migrate');
