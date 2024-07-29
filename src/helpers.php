@@ -56,7 +56,6 @@ if (! function_exists('str_to_slug')) {
 }
 
 if (! function_exists('find_bank_by_card_number')) {
-
     /**
      * Find bank info from card number.
      *
