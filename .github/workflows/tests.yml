@@ -10,7 +10,7 @@ jobs:
     strategy:
       fail-fast: true
       matrix:
-        php: [7.3]
+        php: [8.2]
     steps:
       - name: Checkout code
         uses: actions/checkout@v2

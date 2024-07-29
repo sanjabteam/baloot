@@ -18,8 +18,8 @@
     "require": {
         "php": "^7.3|^8.0",
         "hekmatinasser/verta": "^8.0",
-        "illuminate/support": "^8.0|^9.0|^10.0",
-        "cviebrock/eloquent-sluggable": "^8.0|^9.0|^10.0"
+        "illuminate/support": "^8.0|^9.0|^10.0|^11.0",
+        "cviebrock/eloquent-sluggable": "^8.0|^9.0|^10.0|^11.0"
     },
     "require-dev": {
         "orchestra/testbench": "^5.1 | ^6",
