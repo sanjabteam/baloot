@@ -64,13 +64,51 @@ if (! function_exists('find_bank_by_card_number')) {
      */
     function find_bank_by_card_number($card)
     {
-        static $banks = null;
-        if (! $banks) {
-            $banks = json_decode(file_get_contents(__DIR__.'/../storage/banks.json'), true);
+        return find_banks(function ($bankInfo) use ($card) {
+            return preg_match('/^' . $bankInfo['card_prefix'] . '\\d*/', $card);
+        });
+    }
+}
+
+if (! function_exists('find_bank_by_shaba')) {
+    /**
+     * Find bank info from shaba number.
+     *
+     * @param  string  $number
+     * @return array
+     */
+    function find_bank_by_shaba(string $number)
+    {
+        return find_banks(function ($bankInfo) use ($number) {
+            return $bankInfo['card_prefix'] == substr($number, 2, 3);
+        }, 'shaba');
+    }
+}
+
+if (! function_exists('find_banks')) {
+    /**
+     * @param Closure $callback
+     * @param string $type
+     * @return array
+     */
+    function find_banks(Closure $callback, string $type = 'card')
+    {
+        $types = [
+            'card' => 'banks.json',
+            'shaba' => 'shaba.json',
+        ];
+
+        if (!in_array($type, array_keys($types))) {
+            throw new \Exception('The type must be one of the values card and shaba', 1);
         }
 
-        return Arr::first(array_filter($banks, function ($bankInfo) use ($card) {
-            return preg_match('/^'.$bankInfo['card_prefix'].'\\d*/', $card);
-        }));
+        static $card = null;
+        static $shaba = null;
+
+        if (!$$type) {
+            $$type = json_decode(file_get_contents(__DIR__ . '/../storage/' . ($types[$type])), true);
+        }
+
+        return Arr::first(array_filter($$type, $callback));
     }
 }

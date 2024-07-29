@@ -1,0 +1,147 @@
+[
+    {
+        "class": "central",
+        "card_prefix": "010",
+        "name": "بانک مرکزی"
+    },
+    {
+        "class": "bim",
+        "card_prefix": "011",
+        "name": "بانک صنعت و معدن"
+    },
+    {
+        "class": "mellat",
+        "card_prefix": "012",
+        "name": "بانک ملت"
+    },
+    {
+        "class": "rb",
+        "card_prefix": "013",
+        "name": "بانک رفاه"
+    },
+    {
+        "class": "maskan",
+        "card_prefix": "014",
+        "name": "بانک مسکن"
+    },
+    {
+        "class": "sepah",
+        "card_prefix": "015",
+        "name": "بانک سپه"
+    },
+    {
+        "class": "bki",
+        "card_prefix": "016",
+        "name": "بانک کشاورزی"
+    },
+    {
+        "class": "post",
+        "card_prefix": "017",
+        "name": "بانک ملی ایران"
+    },
+    {
+        "class": "tejarat",
+        "card_prefix": "018",
+        "name": "بانک تجارت"
+    },
+    {
+        "class": "edbi",
+        "card_prefix": "019",
+        "name": "بانک صادرات"
+    },
+    {
+        "class": "edbi",
+        "card_prefix": "020",
+        "name": "بانک توسعه صادرات"
+    },
+    {
+        "class": "post",
+        "card_prefix": "021",
+        "name": "پست بانک ایران"
+    },
+    {
+        "class": "tt",
+        "card_prefix": "022",
+        "name": "بانک توسعه تعاون"
+    },
+    {
+        "class": "etebaritosee",
+        "card_prefix": "051",
+        "name": "موسسه اعتباری توسعه"
+    },
+    {
+        "class": "kar",
+        "card_prefix": "053",
+        "name": "بانک کارآفرین"
+    },
+    {
+        "class": "parsian",
+        "card_prefix": "054",
+        "name": "بانک پارسیان"
+    },
+    {
+        "class": "en",
+        "card_prefix": "055",
+        "name": "بانک اقتصاد نوین"
+    },
+    {
+        "class": "sb",
+        "card_prefix": "056",
+        "name": "بانک سامان"
+    },
+    {
+        "class": "bpi",
+        "card_prefix": "057",
+        "name": "بانک پاسارگاد"
+    },
+    {
+        "class": "sarmayeh",
+        "card_prefix": "058",
+        "name": "بانک سرمایه"
+    },
+    {
+        "class": "sina",
+        "card_prefix": "059",
+        "name": "بانک سینا"
+    },
+    {
+        "class": "gharzolhasaneh",
+        "card_prefix": "060",
+        "name": "بانک قرض الحسنه مهر"
+    },
+    {
+        "class": "shahr",
+        "card_prefix": "061",
+        "name": "بانک شهر"
+    },
+    {
+        "class": "tat",
+        "card_prefix": "062",
+        "name": "بانک تات"
+    },
+    {
+        "class": "ansar",
+        "card_prefix": "063",
+        "name": "بانک انصار"
+    },
+    {
+        "class": "tourism",
+        "card_prefix": "064",
+        "name": "بانک گردشگری"
+    },
+    {
+        "class": "hi",
+        "card_prefix": "065",
+        "name": "بانک حکمت ایرانیان"
+    },
+    {
+        "class": "day",
+        "card_prefix": "066",
+        "name": "بانک دی"
+    },
+    {
+        "class": "iz",
+        "card_prefix": "069",
+        "name": "بانک ایران زمین"
+    } 
+]

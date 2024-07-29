@@ -54,6 +54,7 @@ forkو pull request
 - [اسلاگ](#%d8%a7%d8%b3%d9%84%d8%a7%da%af)
   - [استفاده با پکیج Eloquent Sluggable](#%d8%a7%d8%b3%d8%aa%d9%81%d8%a7%d8%af%d9%87-%d8%a8%d8%a7-%d9%be%da%a9%db%8c%d8%ac-eloquent-sluggable)
 - [پیداکردن بانک از روی شماره کارت](#%d9%be%db%8c%d8%af%d8%a7%da%a9%d8%b1%d8%af%d9%86-%d8%a8%d8%a7%d9%86%da%a9-%d8%a7%d8%b2-%d8%b1%d9%88%db%8c-%d8%b4%d9%85%d8%a7%d8%b1%d9%87-%da%a9%d8%a7%d8%b1%d8%aa)
+- [پیداکردن بانک از روی شماره شبا](#%D9%BE%DB%8C%D8%AF%D8%A7%DA%A9%D8%B1%D8%AF%D9%86-%D8%A8%D8%A7%D9%86%DA%A9-%D8%A7%D8%B2-%D8%B1%D9%88%DB%8C-%D8%B4%D9%85%D8%A7%D8%B1%D9%87-%D8%B4%D8%A8%D8%A7)
 - [ساخته شده با کمک](#%d8%b3%d8%a7%d8%ae%d8%aa%d9%87-%d8%b4%d8%af%d9%87-%d8%a8%d8%a7-%da%a9%d9%85%da%a9)
 
 ## نصب
@@ -620,9 +621,33 @@ find_bank_by_card_number("6037697531")
 
 </div>
 
-کلاس, نام کلاس بر اساس [این پکیج](https://github.com/webdesigniran/IranianBankLogos) هست.
+کلاس, نام کلاس ها بر اساس [این پکیج](https://github.com/webdesigniran/IranianBankLogos) هست.
+
+## پیداکردن بانک از روی شماره شبا
+برای پیدا کردن بانک از روی شماره شبا از این تابع استفاده کنین.
 
 
+<div dir="ltr">
+
+```php
+find_bank_by_shaba('480560611828005302000000')
+```
+
+</div>
+
+خروجی:
+
+<div dir="ltr">
+
+```php
+[
+    "class" => "sb"
+    "card_prefix" => "056"
+    "name" => "بانک سامان"
+]
+```
+
+</div>
 
 ## ساخته شده با کمک
 
